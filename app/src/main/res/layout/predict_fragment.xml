@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Ui.ui.predict.PredictFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--ImageView where image will be set-->
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_image_black_24dp" />
+    <!--Button to pick image-->
+    <Button
+        android:id="@+id/img_pick_btn"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="210dp"
+        android:text="Choose Image" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="330dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="right" />
+
+        <RadioButton
+            android:id="@+id/radio_lift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lift" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="390dp"
+        android:enabled="false"
+        android:text="Predict" />
+
+
+</FrameLayout>
