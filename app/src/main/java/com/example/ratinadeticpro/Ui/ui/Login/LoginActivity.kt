@@ -3,6 +3,8 @@ package com.example.ratinadeticpro.Ui.ui.Login
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +19,8 @@ import com.example.ratinadeticpro.Ui.ui.predict.PredictFragment
 import com.example.ratinadeticpro.Ui.ui.signUp.MainActivity
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.hidePassword
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 @Suppress("DEPRECATION")
@@ -38,6 +42,20 @@ class LoginActivity : AppCompatActivity() {
         btn_login.setOnClickListener {
             login()
 
+        }
+        hidePassword.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+
+                input_password_login.transformationMethod =
+                    HideReturnsTransformationMethod.getInstance()
+
+
+            } else {
+                input_password_login.transformationMethod =
+                    PasswordTransformationMethod.getInstance()
+
+
+            }
         }
         link_signup.setOnClickListener {
 

@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#599EBD</color>
     <color name="wight">#E8ECEE</color>
+    <color name="background">#C4998D</color>
+
 
 </resources>

@@ -5,12 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".Ui.ui.DashBoard.DashboardFragment">
 
-    <TextView
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="DashBoard"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#111111" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

@@ -6,6 +6,8 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -40,6 +42,18 @@ class MainActivity : AppCompatActivity() {
         btn_signup.setOnClickListener {
             signup()
 
+        }
+        hidePassword.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+
+                input_password.transformationMethod = HideReturnsTransformationMethod.getInstance()
+
+
+            } else {
+                input_password.transformationMethod = PasswordTransformationMethod.getInstance()
+
+
+            }
         }
 
         link_login.setOnClickListener {
