@@ -11,7 +11,7 @@ interface WhatToDoDOA {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(whatToDoEntity: WhatToDoEntity)
+    suspend fun insert(whatToDoEntity: List<WhatToDoEntity>)
 
     @Query("SELECT COUNT(*) FROM what_to_do_tb")
     suspend fun getCount(): Int

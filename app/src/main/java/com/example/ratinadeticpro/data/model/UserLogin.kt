@@ -1,10 +1,10 @@
-//package com.example.ratinadeticpro.data.model
+//package com.example.ratinadeticpro.com.example.ratinadeticpro.data.model.getData.model
 //
 //import android.os.Parcel
 //import android.os.Parcelable
 //
 //
-//data class UserLogin(var id: String, var pass: String) : Parcelable {
+//com.example.ratinadeticpro.data.model.getData class UserLogin(var id: String, var pass: String) : Parcelable {
 //    constructor(parcel: Parcel) : this(
 //        parcel.readString()!!,
 //        parcel.readString()!!

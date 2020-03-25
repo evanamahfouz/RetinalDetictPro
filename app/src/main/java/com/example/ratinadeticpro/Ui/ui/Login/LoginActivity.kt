@@ -127,7 +127,11 @@ class LoginActivity : AppCompatActivity() {
             if (errorLabel.isNotEmpty()) {
 
 
-                Toast.makeText(this, errorLabel, Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    this,
+                    "Sorry, Your Not Apart Of Our Client Register First",
+                    Toast.LENGTH_LONG
+                ).show()
 
             }
         })

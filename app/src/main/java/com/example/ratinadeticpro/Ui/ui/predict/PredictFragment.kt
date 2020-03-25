@@ -17,15 +17,16 @@ import android.widget.Toast
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.navigation.fragment.NavHostFragment
 import com.example.ratinadeticpro.R
+import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
 import kotlinx.android.synthetic.main.predict_fragment.*
+import javax.inject.Inject
 
 
 class PredictFragment : Fragment() {
     private lateinit var uriImg: Uri
 
-    private val chose = "Choose Email Client..."
+    private val chose = "Choose com.example.ratinadeticpro.data.model.Email Client..."
     private val email = "retinaldetection@gmail.com"
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -119,7 +120,7 @@ class PredictFragment : Fragment() {
         /*ACTION_SEND action to launch an email client installed on your Android device.*/
         val mIntent = Intent(Intent.ACTION_SEND).apply {
             /*To send an email you need to specify mailto: as URI using setData() method
-            and data type will be to text/plain using setType() method*/
+            and com.example.ratinadeticpro.data.model.getData type will be to text/plain using setType() method*/
             data = Uri.parse("mailto:")
             type = "application/image"
 

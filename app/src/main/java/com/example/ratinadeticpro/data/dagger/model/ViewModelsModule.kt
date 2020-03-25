@@ -2,6 +2,7 @@ package com.example.ratinadeticpro.data.dagger.model
 
 import androidx.lifecycle.ViewModel
 import com.example.ratinadeticpro.Ui.ui.Login.LoginViewModel
+import com.example.ratinadeticpro.Ui.ui.RsultFragment.ResultViewModel
 import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelKey
 import com.example.ratinadeticpro.Ui.ui.signUp.SignUpViewModel
 import dagger.Binds
@@ -20,4 +21,9 @@ abstract class ViewModelsModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     abstract fun provideLoginViewModel(viewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ResultViewModel::class)
+    abstract fun provideResultViewModel(viewModel: ResultViewModel): ViewModel
 }

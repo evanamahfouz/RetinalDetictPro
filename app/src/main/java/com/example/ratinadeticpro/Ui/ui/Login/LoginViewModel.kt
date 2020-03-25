@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ratinadeticpro.data.db.UserEntity
+import com.example.ratinadeticpro.data.db.WhatToDoEntity
 import com.example.ratinadeticpro.data.repo.Repo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,11 +18,13 @@ class LoginViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
     val mutableError = MutableLiveData<String>()
     private lateinit var result: UserEntity
 
+
     fun getPost(id: String, pass: String) {
         viewModelScope.launch {
             try {
                 withContext(Dispatchers.IO) {
                     result = repo.login(id, pass)
+
                 }
                 mutableList.value = result
             } catch (e: Exception) {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Ui.ui.RsultFragment.ResultFragment"
+    android:orientation="vertical"
 
-    android:orientation="vertical"> <!--ImageView where image will be set-->
+    tools:context=".Ui.ui.RsultFragment.ResultFragment"> <!--ImageView where image will be set-->
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="24dp"
-            android:paddingTop="56dp"
+            android:paddingTop="32dp"
             android:paddingRight="24dp">
 
             <ImageView
@@ -24,7 +24,7 @@
                 android:layout_height="92dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp"
-                android:src="@drawable/logo" /> <!-- Email Label -->
+                android:src="@drawable/logo" /> <!-- com.example.ratinadeticpro.data.model.Email Label -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -33,36 +33,38 @@
                 android:textColor="@color/cardview_dark_background"
                 android:textSize="25sp" /> <!-- Password Label -->
             <TextView
-            android:id="@+id/result_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center_horizontal"
-            android:textColor="@color/design_default_color_error"
-            android:text="Choroidal neovascularization (CNV)"
-            android:textSize="25sp" />
+                android:id="@+id/result_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="Choroidal neovascularization (CNV)"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="25sp" />
 
             <ScrollView
                 android:layout_width="wrap_content"
-                android:layout_height="150dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/result_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
                     android:text=" is the creation of new blood vessels in the choroid layer of the eye. Choroidal neovascularization is a common cause of neovascular degenerative maculopathy (i.e. ‘wet’ macular degeneration)commonly exacerbated by extreme myopia, malignant myopic degeneration, or age-related developments."
                     android:textSize="25sp" />
             </ScrollView>
+
             <TextView
                 android:id="@+id/link_details"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
                 android:gravity="center"
-                android:textColor="@color/colorPrimaryDark"
                 android:text="For More Details Click Here"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="16dip" />
         </LinearLayout>
     </ScrollView>
