@@ -4,12 +4,14 @@ package com.example.ratinadeticpro.Ui.ui.signUp
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.edit
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.ratinadeticpro.R
@@ -25,11 +27,13 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     private lateinit var id: String
     private lateinit var pass: String
-    private lateinit var gender: String
+    private var gender: String = ""
     private lateinit var age: String
     private lateinit var email: String
     private lateinit var viewModel: SignUpViewModel
 
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
     @Inject
     lateinit var factory: ViewModelFactory
 
@@ -63,10 +67,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         gender_radio_group.setOnCheckedChangeListener { _, checkedId ->
-            gender = if (checkedId == male_radio_btn.id) {
+            gender = if (checkedId == male_radio_btn.id)
                 "male"
-            } else
-                "female"
+            else "female"
+
 
         }
     }
@@ -89,7 +93,9 @@ class MainActivity : AppCompatActivity() {
         progressDialog.setMessage("Creating Account...")
         progressDialog.show()
 
-
+        if (gender != "female") {
+            gender = "male"
+        }
         viewModel =
             ViewModelProviders.of(this, factory).get(SignUpViewModel::class.java).also {
 
@@ -122,6 +128,10 @@ class MainActivity : AppCompatActivity() {
     private fun onSignSuccess() {
         btn_signup.isEnabled = true
         viewModel.mutableList.observe(this, Observer {
+            sharedPreferences.edit {
+                this.putString("id_user", id)
+                this.commit()
+            }
             setResult(RESULT_OK, null)
 
             Intent(this, LunchFragmentActivity::class.java).also {

@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import com.example.ratinadeticpro.Ui.ui.Login.LoginViewModel
 import com.example.ratinadeticpro.Ui.ui.RsultFragment.ResultViewModel
 import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelKey
+import com.example.ratinadeticpro.Ui.ui.predict.PredictViewModel
 import com.example.ratinadeticpro.Ui.ui.signUp.SignUpViewModel
+import com.example.ratinadeticpro.data.db.PredictImgEntity
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -26,4 +28,9 @@ abstract class ViewModelsModule {
     @IntoMap
     @ViewModelKey(ResultViewModel::class)
     abstract fun provideResultViewModel(viewModel: ResultViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PredictViewModel::class)
+    abstract fun providePredictViewModel(viewModel: ResultViewModel): ViewModel
 }

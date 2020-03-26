@@ -1,7 +1,10 @@
 package com.example.ratinadeticpro.Ui.ui
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.example.ratinadeticpro.R

@@ -2,8 +2,10 @@ package com.example.ratinadeticpro.Ui.ui.RsultFragment
 
 
 import android.annotation.SuppressLint
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,24 +13,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.LunchFragmentActivity
 import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
-import com.example.ratinadeticpro.Ui.ui.signUp.SignUpViewModel
-import com.example.ratinadeticpro.data.db.UserEntity
+
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_result.*
 import javax.inject.Inject
-import javax.xml.transform.Result
 
 @Suppress("DEPRECATION")
 class ResultFragment : Fragment() {
-    lateinit var viewModel: ResultViewModel
+    private lateinit var viewModel: ResultViewModel
+    private lateinit var idUser: String
+    private lateinit var eyePart: String
 
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
     @Inject
     lateinit var factory: ViewModelFactory
 
@@ -43,12 +45,35 @@ class ResultFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        idUser = sharedPreferences.getString(getString(R.string.id_user_key), "")!!
+        eyePart = sharedPreferences.getString(getString(R.string.eye_part_key), "")!!
 
+        Toast.makeText(activity, idUser + " " + eyePart, Toast.LENGTH_LONG).show()
+
+        val progressDialog = ProgressDialog(
+            context,
+            R.style.AppTheme_Dark_Dialog
+        )
+        progressDialog.isIndeterminate = true
+        progressDialog.setMessage("Waiting For The Result...")
+        progressDialog.show()
+
+        android.os.Handler().postDelayed(
+            {
+                run {
+                    // On complete call either onSignSuccess or onSignFailed
+                    // depending on success
+                    onSignSuccess()
+                    // onSignFailed();
+                    progressDialog.dismiss()
+                }
+            }, 10000
+        )
         viewModel =
             ViewModelProviders.of(this, factory).get(ResultViewModel::class.java).also {
 
                 it.getPost(
-                    "123456789"
+                    idUser, eyePart
                 )
             }
         viewModel.mutableList.observe(this, Observer {
@@ -77,6 +102,10 @@ class ResultFragment : Fragment() {
                 startActivity(it)
             }
         }
+    }
+
+    private fun onSignSuccess() {
+
     }
 
     override fun onAttach(context: Context) {

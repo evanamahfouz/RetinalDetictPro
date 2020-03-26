@@ -1,5 +1,7 @@
 package com.example.ratinadeticpro.data.dagger.model
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.example.ratinadeticpro.App
 import com.example.ratinadeticpro.data.db.RetinaDetectDataBase
@@ -37,4 +39,10 @@ class AppModule {
                 .build()
         return retrofit.create(GoogleSheetAPI::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideSharedPreferences(context: Context): SharedPreferences =
+        context.getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE)
+
 }

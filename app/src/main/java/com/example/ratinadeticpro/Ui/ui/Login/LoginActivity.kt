@@ -2,25 +2,24 @@ package com.example.ratinadeticpro.Ui.ui.Login
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
 
 import com.example.ratinadeticpro.R
 import com.example.ratinadeticpro.Ui.ui.LunchFragmentActivity
 import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
-import com.example.ratinadeticpro.Ui.ui.predict.PredictFragment
 import com.example.ratinadeticpro.Ui.ui.signUp.MainActivity
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.hidePassword
-import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 @Suppress("DEPRECATION")
@@ -32,6 +31,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: LoginViewModel
     @Inject
     lateinit var factory: ViewModelFactory
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -114,6 +115,11 @@ class LoginActivity : AppCompatActivity() {
     private fun onSignSuccess() {
         btn_login.isEnabled = true
         viewModel.mutableList.observe(this, Observer {
+            sharedPreferences.edit {
+                this.putString("id_user", id)
+                this.commit()
+            }
+            Log.v("IDDDDDDDDDDDDDDD",sharedPreferences.getString(getString(R.string.id_user_key),"")!!)
             setResult(RESULT_OK, null)
 
             Intent(this, LunchFragmentActivity::class.java).also {

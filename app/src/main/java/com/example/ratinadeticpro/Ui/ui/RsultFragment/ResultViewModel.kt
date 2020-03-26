@@ -23,7 +23,7 @@ class ResultViewModel @Inject constructor(private val repo: Repo) : ViewModel() 
     private lateinit var result: RowsWithDescrip
     private lateinit var resultBeforeDisrip: Rows
 
-    fun getPost(id: String) {
+    fun getPost(id: String,eye:String) {
         viewModelScope.launch {
             try {
                 withContext(Dispatchers.IO) {
@@ -37,7 +37,7 @@ class ResultViewModel @Inject constructor(private val repo: Repo) : ViewModel() 
                     val description = repo.getPredictResult(
                         PredictImgEntity(
                             ID_patient = id,
-                            eye_part = "lift",
+                            eye_part = eye,
                             prediction = resultBeforeDisrip.type,
                             Probability = resultBeforeDisrip.probability.toString(),
                             date = dateInString

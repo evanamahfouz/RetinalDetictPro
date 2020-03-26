@@ -3,7 +3,9 @@ package com.example.ratinadeticpro.Ui.ui.predict
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -15,9 +17,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.PermissionChecker.checkSelfPermission
+import androidx.core.content.edit
 import androidx.navigation.fragment.NavHostFragment
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.predict_fragment.*
 import javax.inject.Inject
 
@@ -27,7 +30,9 @@ class PredictFragment : Fragment() {
 
     private val chose = "Choose com.example.ratinadeticpro.data.model.Email Client..."
     private val email = "retinaldetection@gmail.com"
-
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+    lateinit var idUser: String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +44,11 @@ class PredictFragment : Fragment() {
     @SuppressLint("WrongConstant")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        idUser = sharedPreferences.getString(getString(R.string.id_user_key), "")!!
+
+        Toast.makeText(activity, idUser, Toast.LENGTH_LONG).show()
         //BUTTON CLICK
+
         img_pick_btn.setOnClickListener {
             //check runtime permission
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -62,11 +71,20 @@ class PredictFragment : Fragment() {
 
         go.setOnClickListener {
             val id: Int = radio_group.checkedRadioButtonId
-            if (id == R.id.radio_right)
+            if (id == R.id.radio_right) {
+                sharedPreferences.edit {
+                    this.putString(getString(R.string.eye_part_key), "right")
+                    this.commit()
+                }
                 sendEmail(uriImg, "right")
-            else
+            } else {
+                sharedPreferences.edit {
+                    this.putString(getString(R.string.eye_part_key), "lift")
+                    this.commit()
+                }
                 sendEmail(uriImg, "lift")
 
+            }
         }
     }
 
@@ -81,6 +99,8 @@ class PredictFragment : Fragment() {
     companion object {
         //image pick code
         private const val IMAGE_PICK_CODE = 1000
+        private const val SEND_EMAIL_CODE = 2000
+
         //Permission code
         private const val PERMISSION_CODE = 1001
     }
@@ -113,6 +133,11 @@ class PredictFragment : Fragment() {
             uriImg = data!!.data!!
             go.isEnabled = true
 
+        } else if (requestCode == SEND_EMAIL_CODE) {
+            Log.v("MessageSent", "SentDon")
+            NavHostFragment.findNavController(this)
+                .navigate(R.id.action_predictFragment_to_resultFragment)
+
         }
     }
 
@@ -130,18 +155,15 @@ class PredictFragment : Fragment() {
             putExtra(Intent.EXTRA_STREAM, uri)
 
             //put the message in the intent
-            putExtra(Intent.EXTRA_TEXT, "123 $eye_dir")
+            putExtra(Intent.EXTRA_TEXT, "$idUser $eye_dir")
         }
 
 
 
         try {
             //start email intent
-            startActivity(Intent.createChooser(mIntent, chose))
+            startActivityForResult(Intent.createChooser(mIntent, chose), SEND_EMAIL_CODE)
 
-            Log.v("MessageSent", "SentDon")
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_predictFragment_to_resultFragment)
 
         } catch (e: Exception) {
             //if any thing goes wrong for example no email client application or any exception
@@ -152,5 +174,9 @@ class PredictFragment : Fragment() {
 
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        AndroidSupportInjection.inject(this)
+    }
 }
 
