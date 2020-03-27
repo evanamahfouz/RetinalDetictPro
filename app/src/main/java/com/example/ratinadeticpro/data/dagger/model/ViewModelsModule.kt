@@ -1,6 +1,7 @@
 package com.example.ratinadeticpro.data.dagger.model
 
 import androidx.lifecycle.ViewModel
+import com.example.ratinadeticpro.Ui.ui.History.HistoryViewModel
 import com.example.ratinadeticpro.Ui.ui.Login.LoginViewModel
 import com.example.ratinadeticpro.Ui.ui.RsultFragment.ResultViewModel
 import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelKey
@@ -33,4 +34,8 @@ abstract class ViewModelsModule {
     @IntoMap
     @ViewModelKey(PredictViewModel::class)
     abstract fun providePredictViewModel(viewModel: ResultViewModel): ViewModel
+    @Binds
+    @IntoMap
+    @ViewModelKey(HistoryViewModel::class)
+    abstract fun provideHistoryViewModel(viewModel: HistoryViewModel): ViewModel
 }

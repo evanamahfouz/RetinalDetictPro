@@ -38,6 +38,7 @@ class PredictFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.predict_fragment, container, false)
     }
 
@@ -46,7 +47,6 @@ class PredictFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         idUser = sharedPreferences.getString(getString(R.string.id_user_key), "")!!
 
-        Toast.makeText(activity, idUser, Toast.LENGTH_LONG).show()
         //BUTTON CLICK
 
         img_pick_btn.setOnClickListener {
@@ -136,7 +136,7 @@ class PredictFragment : Fragment() {
         } else if (requestCode == SEND_EMAIL_CODE) {
             Log.v("MessageSent", "SentDon")
             NavHostFragment.findNavController(this)
-                .navigate(R.id.action_predictFragment_to_resultFragment)
+                .navigate(R.id.action_predictFragment2_to_resultFragment2)
 
         }
     }
@@ -151,7 +151,7 @@ class PredictFragment : Fragment() {
 
             putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
             //put the Subject in the intent
-            putExtra(Intent.EXTRA_SUBJECT, "predict retina disease")
+            putExtra(Intent.EXTRA_SUBJECT, "$idUser $eye_dir")
             putExtra(Intent.EXTRA_STREAM, uri)
 
             //put the message in the intent
@@ -178,5 +178,6 @@ class PredictFragment : Fragment() {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
     }
+
 }
 

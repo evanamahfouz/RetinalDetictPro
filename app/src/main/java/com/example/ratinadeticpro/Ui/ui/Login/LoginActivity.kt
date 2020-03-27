@@ -88,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setMessage("Creating Account...")
         progressDialog.show()
 
-        Toast.makeText(this, "SignIn Successfully", Toast.LENGTH_LONG).show()
+
         viewModel =
             ViewModelProviders.of(this, factory).get(LoginViewModel::class.java).also {
 
@@ -115,6 +115,7 @@ class LoginActivity : AppCompatActivity() {
     private fun onSignSuccess() {
         btn_login.isEnabled = true
         viewModel.mutableList.observe(this, Observer {
+            Toast.makeText(this, "SignIn Successfully", Toast.LENGTH_LONG).show()
             sharedPreferences.edit {
                 this.putString("id_user", id)
                 this.commit()

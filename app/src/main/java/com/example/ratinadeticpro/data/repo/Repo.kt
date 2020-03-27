@@ -24,6 +24,7 @@ class Repo @Inject constructor(
         db.userDOA().insert(user)
 
     }
+
     suspend fun insertToDB(whatToDoEntity: List<WhatToDoEntity>) {
         // handle signUp
         db.whatToDoDOA().insert(whatToDoEntity)
@@ -42,6 +43,12 @@ class Repo @Inject constructor(
         db.predictImgDOA().insert(predictImgEntity)
 
         return db.whatToDoDOA().getDiabetesTypeResult(predictImgEntity.prediction)
+
+    }
+
+    suspend fun getAllPredictio(Id: String): List<PredictImgEntity> {
+        return db.predictImgDOA().getALLPrediction(Id)
+
 
     }
 

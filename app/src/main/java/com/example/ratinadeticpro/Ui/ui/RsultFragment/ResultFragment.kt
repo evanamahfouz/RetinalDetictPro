@@ -67,7 +67,7 @@ class ResultFragment : Fragment() {
                     // onSignFailed();
                     progressDialog.dismiss()
                 }
-            }, 10000
+            }, 20000
         )
         viewModel =
             ViewModelProviders.of(this, factory).get(ResultViewModel::class.java).also {

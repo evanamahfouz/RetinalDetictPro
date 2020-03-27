@@ -1,5 +1,6 @@
 package com.example.ratinadeticpro.data.dagger.model
 
+import com.example.ratinadeticpro.Ui.ui.History.HistoryFragment
 import com.example.ratinadeticpro.Ui.ui.RsultFragment.ResultFragment
 import com.example.ratinadeticpro.Ui.ui.predict.PredictFragment
 import dagger.Module
@@ -12,4 +13,7 @@ abstract class FragmentsBindings {
 
     @ContributesAndroidInjector
     abstract fun bindFrag(): PredictFragment
+
+    @ContributesAndroidInjector
+    abstract fun bindHisFrag(): HistoryFragment
 }

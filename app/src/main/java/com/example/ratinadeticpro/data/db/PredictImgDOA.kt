@@ -7,10 +7,13 @@ import androidx.room.*
 @Dao
 interface PredictImgDOA {
     @Query("SELECT * FROM img_detect_tb")
-    suspend fun getPrediction(): PredictImgEntity
+    suspend fun getPrediction(): List<PredictImgEntity>
+
+    @Query("SELECT * FROM img_detect_tb WHERE ID_patient like :Id ")
+    suspend fun getALLPrediction(Id: String): List<PredictImgEntity>
 
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     suspend fun insert(predictImgEntity: PredictImgEntity)
 
     @Query("SELECT COUNT(*) FROM img_detect_tb")

@@ -1,10 +1,10 @@
-package com.example.ratinadeticpro.Ui.ui.Login
+package com.example.ratinadeticpro.Ui.ui.History
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ratinadeticpro.data.db.UserEntity
-import com.example.ratinadeticpro.data.db.WhatToDoEntity
+import com.example.ratinadeticpro.data.db.PredictImgEntity
 import com.example.ratinadeticpro.data.repo.Repo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,22 +12,18 @@ import kotlinx.coroutines.withContext
 import java.lang.Exception
 import javax.inject.Inject
 
-class LoginViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
-
-    val mutableList = MutableLiveData<UserEntity>()
+class HistoryViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
+    val mutableList = MutableLiveData<List<PredictImgEntity>>()
     val mutableError = MutableLiveData<String>()
-    private lateinit var result: UserEntity
 
-
-    fun getPost(id: String, pass: String) {
+    fun getPost(id: String) {
         viewModelScope.launch {
             try {
-                withContext(Dispatchers.IO) {
-                    result = repo.login(id, pass)
-
-
+                val list = withContext(Dispatchers.IO) {
+                    repo.getAllPredictio(id)
                 }
-                mutableList.value = result
+                mutableList.value = list
+                Log.v("SizeList1111",list.size.toString())
             } catch (e: Exception) {
                 mutableError.value = e.message
             }

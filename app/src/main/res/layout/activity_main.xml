@@ -23,8 +23,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            >
+            android:layout_marginTop="8dp">
 
             <EditText
                 android:id="@+id/input_Id"
@@ -38,8 +37,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            >
+            android:layout_marginTop="8dp">
 
             <EditText
                 android:id="@+id/input_email"
@@ -54,8 +52,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            >
+            android:layout_marginTop="8dp">
 
             <EditText
                 android:id="@+id/input_age"
@@ -70,16 +67,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            >
+            android:layout_marginTop="8dp">
 
             <EditText
                 android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword"
-                />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
@@ -131,7 +126,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
+            android:background="@color/colorAccent"
             android:padding="12dp"
+
             android:text="Create Account" />
 
         <TextView

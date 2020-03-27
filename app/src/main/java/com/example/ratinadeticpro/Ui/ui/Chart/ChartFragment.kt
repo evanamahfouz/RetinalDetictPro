@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.Ui.ui.DashBoard
+package com.example.ratinadeticpro.Ui.ui.Chart
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,7 +14,7 @@ import com.github.mikephil.charting.utils.ColorTemplate
 import kotlinx.android.synthetic.main.dashboard_fragment.*
 
 
-class DashboardFragment : Fragment() {
+class ChartFragment : Fragment() {
 
 
     override fun onCreateView(
