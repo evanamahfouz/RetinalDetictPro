@@ -18,6 +18,12 @@
         <action
             android:id="@+id/action_dashBoradFrag_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_dashBoradFrag_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_dashBoradFrag_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
     </fragment>
     <fragment
         android:id="@+id/predictFragment2"
@@ -27,6 +33,9 @@
         <action
             android:id="@+id/action_predictFragment2_to_resultFragment2"
             app:destination="@id/resultFragment2" />
+        <action
+            android:id="@+id/action_predictFragment2_to_dashBoradFrag"
+            app:destination="@id/dashBoradFrag" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment2"
@@ -42,5 +51,27 @@
         android:id="@+id/historyFragment"
         tools:layout="@layout/fragment_history"
         android:name="com.example.ratinadeticpro.Ui.ui.History.HistoryFragment"
-        android:label="HistoryFragment" />
+        android:label="HistoryFragment" >
+        <action
+            android:id="@+id/action_historyFragment_to_dashBoradFrag"
+            app:destination="@id/dashBoradFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.ratinadeticpro.Ui.ui.Profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_dashBoradFrag"
+            app:destination="@id/dashBoradFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.ratinadeticpro.Ui.ui.AboutUs.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" >
+        <action
+            android:id="@+id/action_aboutUsFragment_to_dashBoradFrag"
+            app:destination="@id/dashBoradFrag" />
+    </fragment>
 </navigation>

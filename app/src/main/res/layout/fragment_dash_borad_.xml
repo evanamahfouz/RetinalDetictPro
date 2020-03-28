@@ -4,16 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
     tools:context=".Ui.ui.Dashboard_Main.DashBoradFrag">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:paddingTop="20dp"
-        android:background="@color/colorAccent">
+      >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/gradientbackground"
+
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -30,7 +38,7 @@
 
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="20dp"
                 android:layout_weight="1">
 
                 <RelativeLayout
@@ -44,14 +52,13 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/bus"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
                         android:text="Add image"
                         android:textSize="24sp" />
 
                     <ImageView
                         android:id="@+id/bus"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:contentDescription="@string/insetimg"
@@ -62,7 +69,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="20dp"
                 android:layout_weight="1">
 
                 <RelativeLayout
@@ -77,14 +84,13 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/imageView3"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
                         android:text="Chart"
                         android:textSize="24sp" />
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:contentDescription="@string/chart"
@@ -107,7 +113,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="20dp"
                 android:layout_weight="1">
 
                 <RelativeLayout
@@ -122,14 +128,13 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/bus1"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
                         android:text="History"
                         android:textSize="24sp" />
 
                     <ImageView
                         android:id="@+id/bus1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:contentDescription="@string/history"
@@ -140,7 +145,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="20dp"
                 android:layout_weight="1">
 
                 <RelativeLayout
@@ -155,14 +160,13 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/train"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
                         android:text="Profile"
                         android:textSize="24sp" />
 
                     <ImageView
                         android:id="@+id/train"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:contentDescription="@string/profile"
@@ -184,7 +188,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="20dp"
                 android:layout_weight="1">
 
                 <RelativeLayout
@@ -199,14 +203,13 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/cycle"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
                         android:text="@string/about_us"
                         android:textSize="24sp" />
 
                     <ImageView
                         android:id="@+id/cycle"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:contentDescription="@string/aboutus"

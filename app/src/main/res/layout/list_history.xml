@@ -31,7 +31,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
                 android:text="@{listModel.date}"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black_overlay"
                 android:textSize="16sp"
                 tools:text="date" />
 
@@ -43,7 +43,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
                 android:text="@{listModel.prediction}"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black_overlay"
                 android:textSize="16sp"
                 tools:text="type" />
 
@@ -55,7 +55,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
                 android:text="@{listModel.eye_part}"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black_overlay"
                 android:textSize="16sp"
                 tools:text="eye part" />
         </LinearLayout>
@@ -67,8 +67,8 @@
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:paddingBottom="16dp"
-            android:text="@{listModel.probability}"
-            android:textColor="@color/colorPrimaryDark"
+            android:text='@{"probability : "+ listModel.probability}'
+            android:textColor="@color/black_overlay"
             android:textSize="16sp"
             tools:text="probability" />
     </LinearLayout>

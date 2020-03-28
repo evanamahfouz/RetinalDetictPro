@@ -11,9 +11,7 @@ import androidx.navigation.Navigation
 import com.example.ratinadeticpro.R
 import kotlinx.android.synthetic.main.fragment_dash_borad_.*
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class DashBoradFrag : Fragment() {
 
     override fun onCreateView(
@@ -36,10 +34,19 @@ class DashBoradFrag : Fragment() {
 
         }
         btn_history.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_dashBoradFrag_to_historyFragment)
+            Navigation.findNavController(view)
+                .navigate(R.id.action_dashBoradFrag_to_historyFragment)
 
         }
+        btn_profile.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_dashBoradFrag_to_profileFragment)
 
+        }
+        btn_aboutUs.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_dashBoradFrag_to_aboutUsFragment)
+        }
     }
 
 

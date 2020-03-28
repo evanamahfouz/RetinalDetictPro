@@ -2,7 +2,9 @@ package com.example.ratinadeticpro.Ui.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
 import com.example.ratinadeticpro.R
+import com.example.ratinadeticpro.databinding.ActivityLunchFragmentBinding
 
 class LunchFragmentActivity : AppCompatActivity() {
 
@@ -10,7 +12,10 @@ class LunchFragmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar!!.hide() //<< this
 
-        setContentView(R.layout.activity_lunch_fragment)
+        DataBindingUtil.setContentView<ActivityLunchFragmentBinding>(
+            this,
+            R.layout.activity_lunch_fragment
+        )
 
 
     }

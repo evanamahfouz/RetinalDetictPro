@@ -12,6 +12,9 @@ interface UserDOA {
     @Query("SELECT * FROM user_tb where ID_User like :id and password like :pass")
     suspend fun getUser(id: String, pass: String): UserEntity
 
+    @Query("SELECT * FROM user_tb where ID_User like :id")
+    suspend fun getUserProfile(id: String): UserEntity
+
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(user: UserEntity)

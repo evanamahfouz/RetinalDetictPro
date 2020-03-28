@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 
 import com.example.ratinadeticpro.R
@@ -50,6 +51,7 @@ class HistoryFragment : Fragment() {
                 container,
                 false
             )
+
 
         adapter = HistoryAdapter()
         with(binding.myRecyclerView) {
@@ -102,6 +104,13 @@ class HistoryFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        floatingActionButton.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_historyFragment_to_dashBoradFrag)
+        }
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

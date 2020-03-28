@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.core.content.edit
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.example.ratinadeticpro.R
 import dagger.android.support.AndroidSupportInjection
@@ -68,7 +69,10 @@ class PredictFragment : Fragment() {
                 pickImageFromGallery()
             }
         }
-
+        floatingActionButton.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_predictFragment2_to_dashBoradFrag)
+        }
         go.setOnClickListener {
             val id: Int = radio_group.checkedRadioButtonId
             if (id == R.id.radio_right) {

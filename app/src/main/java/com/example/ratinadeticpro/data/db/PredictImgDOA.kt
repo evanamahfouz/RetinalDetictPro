@@ -19,6 +19,9 @@ interface PredictImgDOA {
     @Query("SELECT COUNT(*) FROM img_detect_tb")
     suspend fun getCount(): Int
 
+    @Query("SELECT COUNT(*) FROM img_detect_tb where ID_patient like :id")
+    suspend fun getCountUser(id: String): Int
+
     @Delete
     suspend fun delete(data: PredictImgEntity)
 }

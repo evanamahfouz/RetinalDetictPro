@@ -5,6 +5,7 @@ import com.example.ratinadeticpro.data.db.RetinaDetectDataBase
 import com.example.ratinadeticpro.data.db.UserEntity
 import com.example.ratinadeticpro.data.db.WhatToDoEntity
 import com.example.ratinadeticpro.data.model.Json4Kotlin_Base
+import com.example.ratinadeticpro.data.model.UserProfile
 import com.example.ratinadeticpro.data.network.GoogleSheetAPI
 import javax.inject.Inject
 
@@ -35,6 +36,13 @@ class Repo @Inject constructor(
     suspend fun login(id: String, pass: String): UserEntity {
         // handle login
         return db.userDOA().getUser(id, pass)
+    }
+
+    suspend fun getProfilrData(id: String): UserProfile {
+        // handle login
+        return UserProfile(
+            db.userDOA().getUserProfile(id), db.predictImgDOA().getCountUser(id).toString()
+        )
     }
 
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,19 +12,19 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="92dp"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         android:src="@drawable/logo" />
 
     <!--Button to pick image-->
     <ImageView
         android:id="@+id/image_view"
-android:layout_marginTop="90dp"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="90dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_image_black_24dp" />
+        app:srcCompat="@drawable/image" />
 
     <Button
         android:id="@+id/img_pick_btn"
@@ -62,8 +63,20 @@ android:layout_marginTop="90dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="420dp"
+        android:background="@drawable/button"
         android:enabled="false"
-        android:text="Predict" />
+        android:text="Predict"
+        android:textColor="@color/wight" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/ic_keyboard_backspace_black_24dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
 
 </FrameLayout>
