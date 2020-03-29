@@ -1,8 +1,10 @@
 package com.example.ratinadeticpro.Ui.ui.History
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
@@ -33,9 +35,26 @@ class HistoryAdapter() :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: PredictImgEntity) {
+            if (data.prediction == "DME") {
+                binding.txtType.setBackgroundResource(R.drawable.circle_orange)
+
+            } else if (data.prediction == "DRUSEN") {
+                binding.txtType.setBackgroundResource(R.drawable.circle_yellow)
+
+
+            } else if (data.prediction == "CNV") {
+                binding.txtType.setBackgroundResource(R.drawable.circle_red)
+
+
+            } else {
+                binding.txtType.setBackgroundResource(R.drawable.circle_green)
+
+            }
             binding.listModel = data
 
+
         }
+
 
     }
 

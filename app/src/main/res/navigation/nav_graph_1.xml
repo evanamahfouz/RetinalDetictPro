@@ -11,19 +11,39 @@
         tools:layout="@layout/fragment_dash_borad_">
         <action
             android:id="@+id/action_dashBoradFrag_to_predictFragment2"
-            app:destination="@id/predictFragment2" />
+            app:destination="@id/predictFragment2"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_dashBoradFrag_to_chartFragment"
-            app:destination="@id/dashboardFragment2" />
+            app:destination="@id/dashboardFragment2"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_dashBoradFrag_to_historyFragment"
-            app:destination="@id/historyFragment" />
+            app:destination="@id/historyFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_dashBoradFrag_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_dashBoradFrag_to_aboutUsFragment"
-            app:destination="@id/aboutUsFragment" />
+            app:destination="@id/aboutUsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/predictFragment2"
@@ -32,10 +52,18 @@
         tools:layout="@layout/predict_fragment">
         <action
             android:id="@+id/action_predictFragment2_to_resultFragment2"
-            app:destination="@id/resultFragment2" />
+            app:destination="@id/resultFragment2"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_predictFragment2_to_dashBoradFrag"
-            app:destination="@id/dashBoradFrag" />
+            app:destination="@id/dashBoradFrag"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/resultFragment2"
@@ -46,7 +74,15 @@
         android:id="@+id/dashboardFragment2"
         android:name="com.example.ratinadeticpro.Ui.ui.Chart.ChartFragment"
         android:label="dashboard_fragment"
-        tools:layout="@layout/dashboard_fragment" />
+        tools:layout="@layout/chart_fragment" >
+        <action
+            android:id="@+id/action_dashboardFragment2_to_dashBoradFrag"
+            app:destination="@id/dashBoradFrag"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         tools:layout="@layout/fragment_history"
@@ -54,7 +90,11 @@
         android:label="HistoryFragment" >
         <action
             android:id="@+id/action_historyFragment_to_dashBoradFrag"
-            app:destination="@id/dashBoradFrag" />
+            app:destination="@id/dashBoradFrag"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -63,7 +103,11 @@
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment_to_dashBoradFrag"
-            app:destination="@id/dashBoradFrag" />
+            app:destination="@id/dashBoradFrag"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/aboutUsFragment"
@@ -72,6 +116,10 @@
         tools:layout="@layout/fragment_about_us" >
         <action
             android:id="@+id/action_aboutUsFragment_to_dashBoradFrag"
-            app:destination="@id/dashBoradFrag" />
+            app:destination="@id/dashBoradFrag"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
 </navigation>

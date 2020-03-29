@@ -1,6 +1,7 @@
 package com.example.ratinadeticpro.Ui.ui.Dashboard_Main
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 
 import com.example.ratinadeticpro.R
+import com.example.ratinadeticpro.Ui.ui.Login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_dash_borad_.*
 
 
@@ -47,7 +49,12 @@ class DashBoradFrag : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_dashBoradFrag_to_aboutUsFragment)
         }
+        btn_logout.setOnClickListener {
+            Intent(context, LoginActivity::class.java).also {
+                startActivity(it)
+
+            }
+        }
+
     }
-
-
 }

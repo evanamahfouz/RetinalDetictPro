@@ -23,5 +23,6 @@
     <string name="about_us">About Us</string>
     <string name="go_back">Go Back</string>
     <string name="retinal_diabetes_detection_app">Retinal Diabetes Detection App</string>
+    <string name="logout">Logout</string>
 
 </resources>

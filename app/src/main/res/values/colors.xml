@@ -5,7 +5,7 @@
     <color name="wight">#E8ECEE</color>
     <color name="background">#C4998D</color>
     <color name="colorPrimary">#03A9F4</color>
-    <color name="colorPrimaryDark">#03A9F4</color>
+    <color name="colorPrimaryDark">#064149</color>
 
     <color name="startBlue">#09c6df</color>
     <color name="endBlue">#064149</color>
@@ -13,7 +13,10 @@
     <color name="grayLight">#fafafa</color>
     <color name="lightgray">#ededed</color>
     <color name="deeppurple">#7c4dff</color>
-    <color name="yello">#ffb300</color>
+    <color name="yello">#F5E031</color>
+    <color name="orange">#FF9800</color>
+    <color name="red">#F00808</color>
+
     <color name="green">#00bfa5</color>
     <color name="darkblue">#23283a</color>
     <color name="testcolorblue">#152b38</color>

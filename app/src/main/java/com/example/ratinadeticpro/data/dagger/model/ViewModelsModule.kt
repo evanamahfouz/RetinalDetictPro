@@ -1,6 +1,7 @@
 package com.example.ratinadeticpro.data.dagger.model
 
 import androidx.lifecycle.ViewModel
+import com.example.ratinadeticpro.Ui.ui.Chart.ChartViewModel
 import com.example.ratinadeticpro.Ui.ui.History.HistoryViewModel
 import com.example.ratinadeticpro.Ui.ui.Login.LoginViewModel
 import com.example.ratinadeticpro.Ui.ui.Profile.ProfileViewModel
@@ -45,4 +46,9 @@ abstract class ViewModelsModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel::class)
     abstract fun provideProfiletoryViewModel(viewModel: ProfileViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ChartViewModel::class)
+    abstract fun provideChartViewModel(viewModel: ChartViewModel): ViewModel
 }
