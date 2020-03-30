@@ -23,8 +23,21 @@ class Repo @Inject constructor(
 
     }
 
+    suspend fun getGenderChart(type: String): List<CountOfType> {
+        return db.userDOA().getGenderChart(type)
+    }
+
+    suspend fun getAgeChart(): List<CountOfType> {
+        return db.userDOA().getAgeChart()
+    }
+
     suspend fun getCountForEachType(id: String): List<CountOfType> {
         return db.predictImgDOA().getCountForCharUser(id)
+    }
+
+    suspend fun getCountForAllType(): List<CountOfType> {
+        return db.predictImgDOA().getCountForAllUserChart()
+
     }
 
     suspend fun insertToDB(whatToDoEntity: List<WhatToDoEntity>) {

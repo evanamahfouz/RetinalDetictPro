@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_2"
+    app:startDestination="@id/dashboradResearcherFragment">
+
+    <fragment
+        android:id="@+id/dashboradResearcherFragment"
+        android:name="com.example.ratinadeticpro.Ui.ui.ResercherDashBoard.DashboradResearcherFragment"
+        android:label="fragment_dashborad_researcher"
+        tools:layout="@layout/fragment_dashborad_researcher">
+        <action
+            android:id="@+id/action_dashboradResearcherFragment_to_loginActivity"
+            app:destination="@id/loginActivity"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@+id/loginActivity" />
+        <action
+            android:id="@+id/action_dashboradResearcherFragment_to_chartOverAllFragment"
+            app:destination="@id/chartOverAllFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_dashboradResearcherFragment_to_chartByGenderFragment"
+            app:destination="@id/chartByGenderFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_dashboradResearcherFragment_to_chartByAgeFragment"
+            app:destination="@id/chartByAgeFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.ratinadeticpro.Ui.ui.Login.LoginActivity"
+        android:label="LoginActivity"
+
+        tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/chartOverAllFragment"
+        android:name="com.example.ratinadeticpro.Ui.ui.ChartOverAllFragment.ChartOverAllFragment"
+        android:label="fragment_chart_over_all"
+        tools:layout="@layout/fragment_chart_over_all">
+        <action
+            android:id="@+id/action_chartOverAllFragment_to_dashboradResearcherFragment"
+            app:destination="@id/dashboradResearcherFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@+id/loginActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/chartByGenderFragment"
+        android:name="com.example.ratinadeticpro.Ui.ui.ChartByGender.ChartByGenderFragment"
+        android:label="ChartByGenderFragment"
+        tools:layout="@layout/fragment_chart_by_gender">
+        <action
+            android:id="@+id/action_chartByGenderFragment_to_dashboradResearcherFragment"
+            app:destination="@id/dashboradResearcherFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@+id/loginActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/chartByAgeFragment"
+        android:name="com.example.ratinadeticpro.Ui.ui.ChartByAge.ChartByAgeFragment"
+        android:label="fragment_chart_by_age"
+        tools:layout="@layout/fragment_chart_by_age" >
+        <action
+            android:id="@+id/action_chartByAgeFragment_to_dashboradResearcherFragment"
+            app:destination="@id/dashboradResearcherFragment"
+            app:popUpTo="@+id/loginActivity" />
+    </fragment>
+</navigation>

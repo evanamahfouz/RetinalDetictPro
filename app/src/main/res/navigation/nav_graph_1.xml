@@ -44,6 +44,10 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_dashBoradFrag_to_loginActivity2"
+            app:destination="@id/loginActivity2"
+            app:popUpTo="@+id/loginActivity2" />
     </fragment>
     <fragment
         android:id="@+id/predictFragment2"
@@ -122,4 +126,9 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
+    <activity
+        android:id="@+id/loginActivity2"
+        android:name="com.example.ratinadeticpro.Ui.ui.Login.LoginActivity"
+        tools:layout="@layout/activity_login"
+        android:label="LoginActivity" />
 </navigation>

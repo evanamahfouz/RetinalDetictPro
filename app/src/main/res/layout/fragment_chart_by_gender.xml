@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.ui.ChartByGender.ChartByGenderFragment">
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchart_gender"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginRight="40dp"
+
+        android:layout_marginBottom="40dp"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/ic_keyboard_backspace_black_24dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
+
+    <RadioGroup
+        android:id="@+id/radio_compare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/radio_DME"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="DME" />
+
+        <RadioButton
+            android:id="@+id/radio_CNV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CNV" />
+
+        <RadioButton
+            android:id="@+id/radio_DUREON"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DRUSEN" />
+
+        <RadioButton
+            android:id="@+id/radio_NORMAL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NORMAL" />
+
+    </RadioGroup>
+</FrameLayout>

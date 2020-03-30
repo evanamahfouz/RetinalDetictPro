@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProviders
 
 import com.example.ratinadeticpro.R
 import com.example.ratinadeticpro.Ui.ui.LunchFragmentActivity
+import com.example.ratinadeticpro.Ui.ui.LunchResearcherFragment
 import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
 import com.example.ratinadeticpro.Ui.ui.signUp.MainActivity
 import dagger.android.AndroidInjection
@@ -65,6 +66,11 @@ class LoginActivity : AppCompatActivity() {
             }
 
 
+        }
+        link_researcher.setOnClickListener{
+            Intent(this, LunchResearcherFragment::class.java).also {
+                startActivity(it)
+            }
         }
 
 

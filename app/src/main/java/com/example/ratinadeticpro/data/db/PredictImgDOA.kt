@@ -16,6 +16,9 @@ interface PredictImgDOA {
     @Query("SELECT prediction as type,COUNT(*) as count FROM img_detect_tb where ID_patient like :id GROUP BY prediction")
     suspend fun getCountForCharUser(id: String): List<CountOfType>
 
+    @Query("SELECT prediction as type,COUNT(*) as count FROM img_detect_tb  GROUP BY prediction")
+    suspend fun getCountForAllUserChart(): List<CountOfType>
+
     @Insert
 
     suspend fun insert(predictImgEntity: PredictImgEntity)
