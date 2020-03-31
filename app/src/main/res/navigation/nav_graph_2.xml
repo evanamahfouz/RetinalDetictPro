@@ -54,7 +54,8 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
-            app:popUpTo="@+id/loginActivity" />
+            app:popUpTo="@+id/loginActivity"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/chartByGenderFragment"
@@ -68,7 +69,8 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
-            app:popUpTo="@+id/loginActivity" />
+            app:popUpTo="@+id/loginActivity"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/chartByAgeFragment"
@@ -78,6 +80,7 @@
         <action
             android:id="@+id/action_chartByAgeFragment_to_dashboradResearcherFragment"
             app:destination="@id/dashboradResearcherFragment"
-            app:popUpTo="@+id/loginActivity" />
+            app:popUpTo="@+id/loginActivity"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -67,8 +67,20 @@ class ResultFragment : Fragment() {
                     // onSignFailed();
                     progressDialog.dismiss()
                 }
-            }, 8000
+            }, 9000
         )
+
+
+        link_details.setOnClickListener {
+            Intent(Intent.ACTION_VIEW).also {
+                it.data =
+                    Uri.parse("https://towardsdatascience.com/detecting-retina-damage-from-oct-retinal-images-315b4af62938")
+                startActivity(it)
+            }
+        }
+    }
+
+    private fun onSignSuccess() {
         viewModel =
             ViewModelProviders.of(this, factory).get(ResultViewModel::class.java).also {
 
@@ -94,18 +106,6 @@ class ResultFragment : Fragment() {
 
             }
         })
-
-        link_details.setOnClickListener {
-            Intent(Intent.ACTION_VIEW).also {
-                it.data =
-                    Uri.parse("https://towardsdatascience.com/detecting-retina-damage-from-oct-retinal-images-315b4af62938")
-                startActivity(it)
-            }
-        }
-    }
-
-    private fun onSignSuccess() {
-
     }
 
     override fun onAttach(context: Context) {

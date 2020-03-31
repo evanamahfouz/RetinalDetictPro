@@ -3,6 +3,7 @@ package com.example.ratinadeticpro.Ui.ui.predict
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -26,6 +27,7 @@ import kotlinx.android.synthetic.main.predict_fragment.*
 import javax.inject.Inject
 
 
+@Suppress("DEPRECATION")
 class PredictFragment : Fragment() {
     private lateinit var uriImg: Uri
 
@@ -139,8 +141,27 @@ class PredictFragment : Fragment() {
 
         } else if (requestCode == SEND_EMAIL_CODE) {
             Log.v("MessageSent", "SentDon")
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_predictFragment2_to_resultFragment2)
+            val progressDialog = ProgressDialog(
+                context,
+                R.style.AppTheme_Dark_Dialog
+            )
+            progressDialog.isIndeterminate = true
+            progressDialog.setMessage("Waiting For The Result...")
+            progressDialog.show()
+
+            android.os.Handler().postDelayed(
+                {
+                    run {
+                        // On complete call either onSignSuccess or onSignFailed
+                        NavHostFragment.findNavController(this)
+                            .navigate(R.id.action_predictFragment2_to_resultFragment2)
+                        // depending on success
+                        // onSignFailed();
+                        progressDialog.dismiss()
+                    }
+                }, 10000
+            )
+
 
         }
     }
