@@ -6,7 +6,7 @@ import androidx.room.*
 
 @Dao
 interface WhatToDoDOA {
-    @Query("SELECT * FROM what_to_do_tb where Type like :type")
+    @Query("SELECT * FROM what_to_do_tb where Type like :type LIMIT 1")
     suspend fun getDiabetesTypeResult(type: String): WhatToDoEntity
 
 
