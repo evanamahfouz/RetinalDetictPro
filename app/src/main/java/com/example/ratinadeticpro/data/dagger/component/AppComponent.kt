@@ -9,9 +9,8 @@ import javax.inject.Singleton
 import android.content.SharedPreferences
 
 
-
 @Singleton
-@Component(modules = [AppModule::class, AppContextBinding::class,FragmentsBindings::class, AndroidSupportInjectionModule::class, ViewModelsModule::class, ActivityBindingModule::class])
+@Component(modules = [AppModule::class, AppContextBinding::class, FragmentsBindings::class, AndroidSupportInjectionModule::class, ViewModelsModule::class, ActivityBindingModule::class])
 interface AppComponent {
 
     fun inject(app: App)

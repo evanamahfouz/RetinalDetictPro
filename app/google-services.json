@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "805359573205",
+    "firebase_url": "https://ratinadeticpro.firebaseio.com",
+    "project_id": "ratinadeticpro",
+    "storage_bucket": "ratinadeticpro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805359573205:android:6d6cc8328312a42b422a5c",
+        "android_client_info": {
+          "package_name": "com.example.ratinadeticpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805359573205-k251n41l9nv1cfqir7a95d492dlc8p29.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ratinadeticpro",
+            "certificate_hash": "a9836e99842b082d525e709d778319cc171a32a3"
+          }
+        },
+        {
+          "client_id": "805359573205-ao4v901coibbqtktjoabr7f5tt4belng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCoRYRnzGEO5nqp3mkmUYE-WwmVObqYcM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805359573205-ao4v901coibbqtktjoabr7f5tt4belng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

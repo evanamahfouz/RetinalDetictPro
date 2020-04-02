@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
@@ -14,7 +13,7 @@ import com.example.ratinadeticpro.R
 import com.example.ratinadeticpro.data.db.PredictImgEntity
 import com.example.ratinadeticpro.databinding.ListHistoryBinding
 
-class HistoryAdapter() :
+class HistoryAdapter :
     ListAdapter<PredictImgEntity, HistoryAdapter.MyViewHolder>(DiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding: ListHistoryBinding = DataBindingUtil.inflate(

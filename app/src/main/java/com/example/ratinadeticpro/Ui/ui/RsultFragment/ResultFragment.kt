@@ -67,7 +67,7 @@ class ResultFragment : Fragment() {
                     // onSignFailed();
                     progressDialog.dismiss()
                 }
-            }, 9000
+            }, 10000
         )
 
 

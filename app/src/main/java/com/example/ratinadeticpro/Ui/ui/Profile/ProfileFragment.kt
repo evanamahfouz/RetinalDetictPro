@@ -15,9 +15,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.RsultFragment.ResultViewModel
 import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
-import com.example.ratinadeticpro.databinding.ActivityLunchFragmentBinding
 import com.example.ratinadeticpro.databinding.FragmentProfileBinding
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -67,17 +65,16 @@ class ProfileFragment : Fragment() {
                     id
                 )
             }
-        viewModel.mutableList.observe(this, Observer {
+        viewModel.mutableList.observe(viewLifecycleOwner, Observer {
 
             binding.userProfile = it
         })
 
-        viewModel.mutableError.observe(this, Observer { errorLabel ->
+        viewModel.mutableError.observe(viewLifecycleOwner, Observer { errorLabel ->
 
             //database
             if (errorLabel.isNotEmpty()) {
 
-                result_type.text = errorLabel
 
                 Toast.makeText(activity, errorLabel, Toast.LENGTH_LONG).show()
 

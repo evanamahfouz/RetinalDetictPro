@@ -14,8 +14,8 @@ import android.widget.Toast
 import androidx.core.content.edit
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.ratinadeticpro.data.Firebase.User
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.data.db.UserEntity
 import com.example.ratinadeticpro.Ui.ui.Login.LoginActivity
 import com.example.ratinadeticpro.Ui.ui.LunchFragmentActivity
 import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
@@ -100,12 +100,12 @@ class MainActivity : AppCompatActivity() {
             ViewModelProviders.of(this, factory).get(SignUpViewModel::class.java).also {
 
                 it.getPost(
-                    UserEntity(
-                        ID_User = id,
-                        email = email,
-                        password = pass,
-                        gender = gender,
-                        age = age
+                    User(
+                        id,
+                        pass,
+                        email,
+                        age,
+                        gender
                     )
                 )
             }

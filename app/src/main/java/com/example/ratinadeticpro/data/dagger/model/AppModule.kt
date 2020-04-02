@@ -6,6 +6,8 @@ import androidx.room.Room
 import com.example.ratinadeticpro.App
 import com.example.ratinadeticpro.data.db.RetinaDetectDataBase
 import com.example.ratinadeticpro.data.network.GoogleSheetAPI
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -26,6 +28,13 @@ class AppModule {
         ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
     }
+
+    @Provides
+    @Singleton
+    fun firebaseDatabase(): FirebaseDatabase = FirebaseDatabase.getInstance()
+
+    @Provides
+    fun firebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
 
     @Singleton
     @Provides
