@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.data.Firebase
+package com.example.ratinadeticpro.data.model
 
 data class PredictImg(
 
@@ -7,9 +7,11 @@ data class PredictImg(
     val prediction: String = "",
 
     val probability: String = "",
-    val date: String = ""
+    val date: String = "",
+    val gender: String = ""
+
 ) {
-    constructor() : this("", "", "", "", "")
+    constructor() : this("", "", "", "", "","")
 
 }
 
