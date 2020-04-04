@@ -40,5 +40,9 @@ class DashboradResearcherFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_dashboradResearcherFragment_to_loginActivity)
         }
+        btn_aboutUs.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_dashboradResearcherFragment_to_aboutUsFrag)
+        }
     }
 }

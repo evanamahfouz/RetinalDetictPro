@@ -35,35 +35,36 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <androidx.cardview.widget.CardView
-
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="20dp"
                 android:layout_weight="1">
 
                 <RelativeLayout
-                    android:id="@+id/chart_age"
+                    android:id="@+id/chart_Gender"
                     android:layout_width="match_parent"
+
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/textView9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/bus"
+                        android:layout_below="@id/cycle1"
                         android:layout_centerHorizontal="true"
-                        android:text="Reports"
+                        android:text="@string/chart_by_gender"
                         android:textSize="24sp" />
 
                     <ImageView
-                        android:id="@+id/bus"
+                        android:id="@+id/cycle1"
                         android:layout_width="90dp"
                         android:layout_height="60dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:contentDescription="@string/insetimg"
-                        app:srcCompat="@drawable/chart_age" />
+                        android:contentDescription="@string/aboutus"
+                        app:srcCompat="@drawable/chart_gender" />
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -126,7 +127,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -134,30 +134,62 @@
                 android:layout_weight="1">
 
                 <RelativeLayout
-                    android:id="@+id/chart_Gender"
+                    android:id="@+id/btn_aboutUs"
                     android:layout_width="match_parent"
 
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/textView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/cycle1"
+                        android:layout_below="@id/cycle"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/chart_by_gender"
+                        android:text="@string/about_us"
                         android:textSize="24sp" />
 
                     <ImageView
-                        android:id="@+id/cycle1"
-                        android:layout_width="90dp"
+                        android:id="@+id/cycle"
+                        android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:contentDescription="@string/aboutus"
-                        app:srcCompat="@drawable/chart_gender" />
+                        app:srcCompat="@drawable/admin" />
                 </RelativeLayout>
 
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:id="@+id/chart_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/bus"
+                        android:layout_centerHorizontal="true"
+                        android:text="Reports"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:id="@+id/bus"
+                        android:layout_width="90dp"
+                        android:layout_height="60dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:contentDescription="@string/insetimg"
+                        app:srcCompat="@drawable/chart_age" />
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
 
