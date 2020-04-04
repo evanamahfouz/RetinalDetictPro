@@ -87,7 +87,7 @@ class HistoryFragment : Fragment() {
             prof.visibility = View.GONE
         })
 
-        viewModel.mutableError.observe(this, Observer { errorLabel ->
+        viewModel.mutableError.observe(viewLifecycleOwner, Observer { errorLabel ->
 
             //database
             if (errorLabel.isNotEmpty()) {

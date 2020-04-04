@@ -159,7 +159,7 @@ class PredictFragment : Fragment() {
                         // onSignFailed();
                         progressDialog.dismiss()
                     }
-                }, 10000
+                }, 12000
             )
 
 

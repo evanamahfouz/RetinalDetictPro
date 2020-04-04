@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/bus"
                         android:layout_centerHorizontal="true"
-                        android:text="Chart By Age"
+                        android:text="Reports"
                         android:textSize="24sp" />
 
                     <ImageView

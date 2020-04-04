@@ -36,5 +36,9 @@ class DashboradResearcherFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_dashboradResearcherFragment_to_chartByAgeFragment)
         }
+        floatingActionButtonDash.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_dashboradResearcherFragment_to_loginActivity)
+        }
     }
 }

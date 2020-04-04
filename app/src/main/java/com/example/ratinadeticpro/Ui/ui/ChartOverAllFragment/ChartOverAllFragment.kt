@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
@@ -23,6 +24,9 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_chart_over_all.*
+import kotlinx.android.synthetic.main.fragment_chart_over_all.floatingActionButton
+import kotlinx.android.synthetic.main.fragment_chart_over_all.prof
+import kotlinx.android.synthetic.main.fragment_history.*
 import javax.inject.Inject
 
 /**
@@ -72,6 +76,7 @@ class ChartOverAllFragment : Fragment() {
             //database
             if (errorLabel.isNotEmpty()) {
 
+                prof.visibility = View.GONE
 
                 Toast.makeText(context, "No Data Yet Start Now", Toast.LENGTH_LONG).show()
 
@@ -95,8 +100,10 @@ class ChartOverAllFragment : Fragment() {
         barchart.animateY(3000)
         val data = BarData(countOfTypes, barDatSet)
         barchart.xAxis.setLabelsToSkip(0)
-       Log.v("FragmentChartOver" ,data.xVals.toString()+" "+data.xValCount)
+        Log.v("FragmentChartOver", data.xVals.toString() + " " + data.xValCount)
         barDatSet.setColors(ColorTemplate.COLORFUL_COLORS)
+        prof.visibility = View.GONE
+        barchart.isVisible = true
         barchart.data = data
     }
 
