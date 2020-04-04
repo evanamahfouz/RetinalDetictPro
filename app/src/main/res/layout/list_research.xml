@@ -71,7 +71,7 @@
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:paddingBottom="16dp"
-            android:text='@{"gender : "+ listOfPrediction.gender}'
+            android:text='@{"Gender : "+ listOfPrediction.gender+"  Age : "+listOfPrediction.age}'
             android:textColor="@color/black_overlay"
             android:textSize="16sp"
             tools:text="Gender" />

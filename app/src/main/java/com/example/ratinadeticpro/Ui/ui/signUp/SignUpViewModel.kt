@@ -17,7 +17,6 @@ import java.lang.Exception
 import javax.inject.Inject
 
 class SignUpViewModel @Inject constructor(
-    private val firebaseDatabase: FirebaseDatabase,
     private val repo: Repo
 ) : ViewModel() {
     val mutableList = MutableLiveData<String>()
@@ -38,7 +37,7 @@ class SignUpViewModel @Inject constructor(
                         )
                     )
                 }
-                firebaseDatabase.getReference("users").child(user.id_User).setValue(user)
+
 
                 mutableList.value = "Done Successfully"
             } catch (e: Exception) {

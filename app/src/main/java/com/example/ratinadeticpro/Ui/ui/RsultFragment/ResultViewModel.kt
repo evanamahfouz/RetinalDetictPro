@@ -25,7 +25,7 @@ import java.util.*
 import javax.inject.Inject
 
 class ResultViewModel @Inject constructor(
-    private val firebaseDatabase: FirebaseDatabase,
+    private val fireBaseDatabase: FirebaseDatabase,
     private val repo: Repo
 ) : ViewModel() {
 
@@ -34,6 +34,7 @@ class ResultViewModel @Inject constructor(
     private lateinit var resultBeforeDisrip: Rows
     private lateinit var desc: WhatToDoEntity
     private lateinit var gender: String
+    private lateinit var age: String
 
     fun getPost(id: String, eye: String) {
         viewModelScope.launch {
@@ -57,30 +58,35 @@ class ResultViewModel @Inject constructor(
                 }
 
 
-                firebaseDatabase.getReference("predictImg").also {
-                    it.child(it.push().key!!).setValue(
-                        PredictImg(
-                            id, eye, resultBeforeDisrip.type,
-                            resultBeforeDisrip.probability.toString(),
-                            dateInString
-                        )
-                    )
-                }
                 mutableList.value =
                     resultBeforeDisrip.mapWithDiscrip(desc.Result)
 //update counter
-                firebaseDatabase.getReference("users").orderByChild("id_User").equalTo(id).also {
+                fireBaseDatabase.getReference("users").orderByChild("id_User").equalTo(id).also {
                     it.addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onCancelled(p0: DatabaseError) {
                         }
 
                         override fun onDataChange(dataSnapshot1: DataSnapshot) {
-                            gender =
-                                dataSnapshot1.children.first().getValue(User::class.java)!!.gender
+
+                            dataSnapshot1.children.first().getValue(User::class.java)!!.also { it1 ->
+                                gender = it1.gender
+                                age = it1.age
+                            }
+
+
                             Log.v("ResultviewMODEL", gender)
 
+                            fireBaseDatabase.getReference("predictImg").also { it1 ->
+                                it1.child(it1.push().key!!).setValue(
+                                    PredictImg(
+                                        id, eye, resultBeforeDisrip.type,
+                                        resultBeforeDisrip.probability.toString(),
+                                        dateInString, gender, age
+                                    )
+                                )
+                            }
                             // listen for single change
-                            firebaseDatabase.getReference(resultBeforeDisrip.type).also { value ->
+                            fireBaseDatabase.getReference(resultBeforeDisrip.type).also { value ->
                                 value.orderByChild(gender)
                                     .addListenerForSingleValueEvent(object : ValueEventListener {
                                         override fun onCancelled(p0: DatabaseError) {
@@ -104,29 +110,30 @@ class ResultViewModel @Inject constructor(
                                     })
 
                             }
-                            firebaseDatabase.getReference("CountEach")
+                            fireBaseDatabase.getReference("CountEach")
                                 .child(resultBeforeDisrip.type).also { value ->
-                                value.addListenerForSingleValueEvent(object : ValueEventListener {
-                                    override fun onCancelled(p0: DatabaseError) {
-                                        Log.v("ViewModelREesult", p0.message)
-                                    }
+                                    value.addListenerForSingleValueEvent(object :
+                                        ValueEventListener {
+                                        override fun onCancelled(p0: DatabaseError) {
+                                            Log.v("ViewModelREesult", p0.message)
+                                        }
 
-                                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                                        val count =
-                                            dataSnapshot.child("count")
-                                                .value.toString()
-                                        Log.v(
-                                            "Before111", resultBeforeDisrip.type + " " + count
-                                        )
+                                        override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                            val count =
+                                                dataSnapshot.child("count")
+                                                    .value.toString()
+                                            Log.v(
+                                                "Before111", resultBeforeDisrip.type + " " + count
+                                            )
 
-                                        value.child("count")
-                                            .setValue(((Integer.parseInt(count) + 1)).toString())
-                                        Log.v("After111", ((count + 1)))
+                                            value.child("count")
+                                                .setValue(((Integer.parseInt(count) + 1)).toString())
+                                            Log.v("After111", ((count + 1)))
 
-                                    }
+                                        }
 
-                                })
-                            }
+                                    })
+                                }
                         }
                     })
                 }

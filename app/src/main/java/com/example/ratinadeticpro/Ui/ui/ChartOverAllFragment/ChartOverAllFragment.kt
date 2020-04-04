@@ -67,7 +67,7 @@ class ChartOverAllFragment : Fragment() {
             Log.v("ListSize", it.size.toString())
         })
 
-        viewModel.mutableError.observe(this, Observer { errorLabel ->
+        viewModel.mutableError.observe(viewLifecycleOwner, Observer { errorLabel ->
 
             //database
             if (errorLabel.isNotEmpty()) {
@@ -91,9 +91,11 @@ class ChartOverAllFragment : Fragment() {
 
         }
 
-        val barDatSet = BarDataSet(noOfEmp, "Num Of Inserted Image With The Same Type")
-        barchart.animateY(5000)
+        val barDatSet = BarDataSet(noOfEmp, "Num Of Inserted Image Within Type")
+        barchart.animateY(3000)
         val data = BarData(countOfTypes, barDatSet)
+        barchart.xAxis.setLabelsToSkip(0)
+       Log.v("FragmentChartOver" ,data.xVals.toString()+" "+data.xValCount)
         barDatSet.setColors(ColorTemplate.COLORFUL_COLORS)
         barchart.data = data
     }

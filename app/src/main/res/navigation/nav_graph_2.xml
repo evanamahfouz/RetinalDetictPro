@@ -34,13 +34,27 @@
             app:popExitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_dashboradResearcherFragment_to_chartByAgeFragment"
-            app:destination="@id/chartByAgeFragment" />
+            app:destination="@id/chartByAgeFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_dashboradResearcherFragment_to_loginActivity2"
+            app:destination="@id/loginActivity"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <activity
         android:id="@+id/loginActivity"
         android:name="com.example.ratinadeticpro.Ui.ui.Login.LoginActivity"
         android:label="LoginActivity"
-
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_out_right"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_left"
         tools:layout="@layout/activity_login" />
     <fragment
         android:id="@+id/chartOverAllFragment"
@@ -81,6 +95,10 @@
             android:id="@+id/action_chartByAgeFragment_to_dashboradResearcherFragment"
             app:destination="@id/dashboradResearcherFragment"
             app:popUpTo="@+id/loginActivity"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -41,6 +41,9 @@ class ChartOverAllViewModel @Inject constructor(
                                 )
                             }
                             Log.v("ViewModelChartAll11", menu.size.toString())
+                            Log.v("ViewModelChartAll11", "Type "+menu[1].type+" Count "+menu[1].count)
+                            Log.v("ViewModelChartAll11", "Type "+menu[2].type+" Count "+menu[2].count)
+                            Log.v("ViewModelChartAll11", "Type "+menu[3].type+" Count "+menu[3].count)
 
                             mutableList.value = menu
                         }

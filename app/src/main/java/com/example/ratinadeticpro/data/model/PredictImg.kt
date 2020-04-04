@@ -9,9 +9,11 @@ data class PredictImg(
     val probability: String = "",
     val date: String = "",
     val gender: String = ""
+    ,
+    val age: String = ""
 
 ) {
-    constructor() : this("", "", "", "", "","")
+    constructor() : this("", "", "", "", "", "", "")
 
 }
 

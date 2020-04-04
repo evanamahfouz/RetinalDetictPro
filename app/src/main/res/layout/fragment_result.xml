@@ -38,9 +38,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center_horizontal"
-                android:text="Choroidal neovascularization (CNV)"
                 android:textColor="@color/design_default_color_error"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:text="Choroidal neovascularization (CNV)" />
 
             <ScrollView
                 android:layout_width="wrap_content"
@@ -52,8 +52,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
-                    android:text=" is the creation of new blood vessels in the choroid layer of the eye. Choroidal neovascularization is a common cause of neovascular degenerative maculopathy (i.e. ‘wet’ macular degeneration)commonly exacerbated by extreme myopia, malignant myopic degeneration, or age-related developments."
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+
+                    tools:text=" is the creation of new blood vessels in the choroid layer of the eye. Choroidal neovascularization is a common cause of neovascular degenerative maculopathy (i.e. ‘wet’ macular degeneration)commonly exacerbated by extreme myopia, malignant myopic degeneration, or age-related developments." />
             </ScrollView>
 
             <TextView
