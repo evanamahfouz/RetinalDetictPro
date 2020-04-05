@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -11,9 +13,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ratinadeticpro.R
 import com.example.ratinadeticpro.data.db.PredictImgEntity
 import com.example.ratinadeticpro.databinding.ListHistoryBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HistoryAdapter :
-    ListAdapter<PredictImgEntity, HistoryAdapter.MyViewHolder>(DiffCallback()) {
+    ListAdapter<PredictImgEntity, HistoryAdapter.MyViewHolder>(DiffCallback()), Filterable {
+    private var imageFilterList: List<PredictImgEntity>
+
+    init {
+        imageFilterList = currentList
+
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding: ListHistoryBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context)
@@ -33,20 +44,11 @@ class HistoryAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: PredictImgEntity) {
-            if (data.prediction == "DME") {
-                binding.txtType.setBackgroundResource(R.drawable.circle_orange)
-
-            } else if (data.prediction == "DRUSEN") {
-                binding.txtType.setBackgroundResource(R.drawable.circle_yellow)
-
-
-            } else if (data.prediction == "CNV") {
-                binding.txtType.setBackgroundResource(R.drawable.circle_red)
-
-
-            } else {
-                binding.txtType.setBackgroundResource(R.drawable.circle_green)
-
+            when {
+                data.prediction == "DME" -> binding.txtType.setBackgroundResource(R.drawable.circle_orange)
+                data.prediction == "DRUSEN" -> binding.txtType.setBackgroundResource(R.drawable.circle_yellow)
+                data.prediction == "CNV" -> binding.txtType.setBackgroundResource(R.drawable.circle_red)
+                else -> binding.txtType.setBackgroundResource(R.drawable.circle_green)
             }
             binding.listModel = data
 
@@ -76,4 +78,67 @@ class HistoryAdapter :
             return oldItem == newItem
         }
     }
+
+    override fun getFilter(): Filter {
+        Log.v("CurrentList", currentList.size.toString())
+        imageFilterList = currentList
+        return object : Filter() {
+            override fun performFiltering(charSequence: CharSequence): FilterResults {
+                val charSearch = charSequence.toString()
+                Log.v("CharSearch11!!", charSearch)
+                Log.v("imageFilterSize!!", imageFilterList.size.toString())
+
+                imageFilterList = if (charSearch.isEmpty()) {
+                    Log.v("imageSizeEmptyChar", imageFilterList.size.toString())
+
+                    currentList
+                } else {
+                    val resultList = ArrayList<PredictImgEntity>()
+                    for (row in imageFilterList) {
+                        if (row.eye_part.toLowerCase(Locale.ROOT).contains(
+                                charSearch.toLowerCase(
+                                    Locale.ROOT
+                                )
+                            ) || row.prediction.toLowerCase(Locale.ROOT).contains(
+                                charSearch.toLowerCase(
+                                    Locale.ROOT
+                                )
+
+                            ) || row.date.toLowerCase(Locale.ROOT).contains(
+                                charSearch.toLowerCase(
+                                    Locale.ROOT
+                                )
+                            ) || row.Probability.toLowerCase(Locale.ROOT).contains(
+                                charSearch.toLowerCase(
+                                    Locale.ROOT
+                                )
+                            )
+
+                        ) {
+                            resultList.add(row)
+                        }
+
+                    }
+                    Log.v("ResultListSize", resultList.size.toString())
+                    resultList
+                }
+                val filterResults = FilterResults()
+                filterResults.values = imageFilterList
+
+                Log.v("InFilter", imageFilterList.size.toString())
+                return filterResults
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence, results: FilterResults) {
+                imageFilterList = results.values as List<PredictImgEntity>
+                submitList(imageFilterList)
+
+                notifyDataSetChanged()
+            }
+
+        }
+    }
+
+
 }

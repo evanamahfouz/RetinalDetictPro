@@ -11,11 +11,20 @@
         android:orientation="vertical"
         tools:context=".ui.main.ui.main.MainActivity">
 
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/design_default_color_error"
+            />
+
         <LinearLayout
             android:id="@+id/linear"
             android:layout_width="match_parent"
+
             android:layout_height="50dp"
-            android:background="@color/colorAccent"
+            android:layout_marginTop="45dp"
+            android:background="@color/design_default_color_error"
             android:orientation="horizontal">
 
 
@@ -91,7 +100,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/ic_keyboard_backspace_black_24dp"
+            android:background="@color/design_default_color_error"
             android:clickable="true"
             app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
     </RelativeLayout>
