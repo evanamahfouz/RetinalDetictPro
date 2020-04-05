@@ -1,21 +1,22 @@
-package com.example.ratinadeticpro.Ui.ui.Chart
+@file:Suppress("DEPRECATION")
+
+package com.example.ratinadeticpro.ui.ui.chart
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
 import com.example.ratinadeticpro.data.model.CountOfType
-
+import com.example.ratinadeticpro.ui.ui.viewModelFactory.ViewModelFactory
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
@@ -59,7 +60,8 @@ class ChartFragment : Fragment() {
             }
 
         floatingActionButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_dashboardFragment2_to_dashBoradFrag)
+            Navigation.findNavController(view)
+                .navigate(R.id.action_dashboardFragment2_to_dashBoradFrag)
         }
 
         viewModel.mutableList.observe(viewLifecycleOwner, Observer {
@@ -70,7 +72,7 @@ class ChartFragment : Fragment() {
             Log.v("ListSize", it.size.toString())
         })
 
-        viewModel.mutableError.observe(this, Observer { errorLabel ->
+        viewModel.mutableError.observe(viewLifecycleOwner, Observer { errorLabel ->
 
             //database
             if (errorLabel.isNotEmpty()) {
@@ -95,6 +97,8 @@ class ChartFragment : Fragment() {
         }
 
         val barDatSet = BarDataSet(noOfEmp, "Num Of Inserted Image With The Same Type")
+
+        barchart.xAxis.setLabelsToSkip(0)
         barchart.animateY(5000)
         val data = BarData(countOfTypes, barDatSet)
         barDatSet.setColors(ColorTemplate.COLORFUL_COLORS)

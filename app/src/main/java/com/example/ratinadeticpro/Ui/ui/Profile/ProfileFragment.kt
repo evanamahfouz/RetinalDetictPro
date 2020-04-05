@@ -1,4 +1,6 @@
-package com.example.ratinadeticpro.Ui.ui.Profile
+@file:Suppress("DEPRECATION")
+
+package com.example.ratinadeticpro.ui.ui.profile
 
 
 import android.content.Context
@@ -15,11 +17,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
+import com.example.ratinadeticpro.ui.ui.viewModelFactory.ViewModelFactory
 import com.example.ratinadeticpro.databinding.FragmentProfileBinding
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_profile.*
-import kotlinx.android.synthetic.main.fragment_result.*
 import javax.inject.Inject
 
 /**

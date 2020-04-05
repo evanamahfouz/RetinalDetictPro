@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.data.Firebase
+package com.example.ratinadeticpro.data.fireBase
 
 open class User(
     val id_User: String,

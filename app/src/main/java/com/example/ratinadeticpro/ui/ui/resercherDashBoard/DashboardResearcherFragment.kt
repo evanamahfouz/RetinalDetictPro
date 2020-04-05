@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.Ui.ui.ResercherDashBoard
+package com.example.ratinadeticpro.ui.ui.resercherDashBoard
 
 
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.navigation.Navigation
 import com.example.ratinadeticpro.R
 import kotlinx.android.synthetic.main.fragment_dashborad_researcher.*
 
-class DashboradResearcherFragment : Fragment() {
+class DashboardResearcherFragment : Fragment() {
 
 
     override fun onCreateView(

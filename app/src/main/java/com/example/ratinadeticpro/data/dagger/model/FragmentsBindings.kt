@@ -1,14 +1,14 @@
 package com.example.ratinadeticpro.data.dagger.model
 
-import com.example.ratinadeticpro.Ui.ui.Chart.ChartFragment
-import com.example.ratinadeticpro.Ui.ui.ChartByAge.ChartByAgeFragment
-import com.example.ratinadeticpro.Ui.ui.ChartByGender.ChartByGenderFragment
-import com.example.ratinadeticpro.Ui.ui.ChartOverAllFragment.ChartOverAllFragment
-import com.example.ratinadeticpro.Ui.ui.Dashboard_Main.DashBoradFrag
-import com.example.ratinadeticpro.Ui.ui.History.HistoryFragment
-import com.example.ratinadeticpro.Ui.ui.Profile.ProfileFragment
-import com.example.ratinadeticpro.Ui.ui.RsultFragment.ResultFragment
-import com.example.ratinadeticpro.Ui.ui.predict.PredictFragment
+import com.example.ratinadeticpro.ui.ui.chart.ChartFragment
+import com.example.ratinadeticpro.ui.ui.reportsWithSearch.ChartByAgeFragment
+import com.example.ratinadeticpro.ui.ui.chartByGender.ChartByGenderFragment
+import com.example.ratinadeticpro.ui.ui.chartOverAllFragment.ChartOverAllFragment
+import com.example.ratinadeticpro.ui.ui.dashboard_Main.DashBoardFrag
+import com.example.ratinadeticpro.ui.ui.history.HistoryFragment
+import com.example.ratinadeticpro.ui.ui.profile.ProfileFragment
+import com.example.ratinadeticpro.ui.ui.resultFragment.ResultFragment
+import com.example.ratinadeticpro.ui.ui.predict.PredictFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -30,7 +30,7 @@ abstract class FragmentsBindings {
     abstract fun bindChartFrag(): ChartFragment
 
     @ContributesAndroidInjector
-    abstract fun bindDashFrag(): DashBoradFrag
+    abstract fun bindDashFrag(): DashBoardFrag
 
     @ContributesAndroidInjector
     abstract fun bindOverAllChartFrag(): ChartOverAllFragment

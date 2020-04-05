@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Ui.ui.predict.PredictFragment">
+    tools:context=".ui.ui.predict.PredictFragment">
 
     <!--ImageView where image will be set-->
     <ImageView
@@ -14,6 +14,7 @@
         android:layout_height="92dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:contentDescription="@string/logo"
         android:src="@drawable/logo" />
 
     <!--Button to pick image-->
@@ -23,6 +24,7 @@
         android:layout_height="250dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="90dp"
+        android:contentDescription="@string/add_image"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/image" />
 
@@ -33,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300dp"
-        android:text="Choose Image" />
+        android:text="@string/choose_image" />
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -48,13 +50,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="right" />
+            android:text="@string/right" />
 
         <RadioButton
             android:id="@+id/radio_lift"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="lift" />
+            android:text="@string/lift" />
     </RadioGroup>
 
     <Button
@@ -65,18 +67,18 @@
         android:layout_marginTop="420dp"
         android:background="@drawable/button"
         android:enabled="false"
-        android:text="Predict"
+        android:text="@string/predict"
         android:textColor="@color/wight" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="480dp"
         android:background="@drawable/ic_keyboard_backspace_black_24dp"
         android:clickable="true"
+        android:focusable="true"
         app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
 
 </FrameLayout>

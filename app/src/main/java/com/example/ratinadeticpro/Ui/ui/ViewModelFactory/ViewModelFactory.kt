@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.Ui.ui.ViewModelFactory
+package com.example.ratinadeticpro.ui.ui.viewModelFactory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

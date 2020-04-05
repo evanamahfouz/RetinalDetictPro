@@ -1,15 +1,14 @@
-package com.example.ratinadeticpro.Ui.ui.signUp
+package com.example.ratinadeticpro.ui.ui.signUp
 
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ratinadeticpro.data.Firebase.User
+import com.example.ratinadeticpro.data.fireBase.User
 import com.example.ratinadeticpro.data.db.UserEntity
 
 import com.example.ratinadeticpro.data.repo.Repo
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

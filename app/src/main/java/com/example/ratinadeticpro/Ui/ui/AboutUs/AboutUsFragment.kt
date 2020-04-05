@@ -1,13 +1,12 @@
-package com.example.ratinadeticpro.Ui.ui.AboutUs
+package com.example.ratinadeticpro.ui.ui.aboutUs
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-
 import com.example.ratinadeticpro.R
 import kotlinx.android.synthetic.main.fragment_about_us.*
 

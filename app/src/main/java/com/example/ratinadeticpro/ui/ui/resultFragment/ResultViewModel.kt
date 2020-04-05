@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.Ui.ui.RsultFragment
+package com.example.ratinadeticpro.ui.ui.resultFragment
 
 
 import android.util.Log
@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ratinadeticpro.data.model.PredictImg
-import com.example.ratinadeticpro.data.Firebase.User
+import com.example.ratinadeticpro.data.fireBase.User
 import com.example.ratinadeticpro.data.db.PredictImgEntity
 import com.example.ratinadeticpro.data.db.WhatToDoEntity
 import com.example.ratinadeticpro.data.model.Rows

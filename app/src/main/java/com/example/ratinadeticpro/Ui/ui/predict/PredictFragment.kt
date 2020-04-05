@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.Ui.ui.predict
+package com.example.ratinadeticpro.ui.ui.predict
 
 import android.Manifest
 import android.annotation.SuppressLint

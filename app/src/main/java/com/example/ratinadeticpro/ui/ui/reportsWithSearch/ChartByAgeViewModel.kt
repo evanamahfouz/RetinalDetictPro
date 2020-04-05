@@ -1,11 +1,10 @@
-package com.example.ratinadeticpro.Ui.ui.ChartByAge
+package com.example.ratinadeticpro.ui.ui.reportsWithSearch
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ratinadeticpro.data.model.PredictImg
-import com.example.ratinadeticpro.data.repo.Repo
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -13,12 +12,10 @@ import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 import javax.inject.Inject
 
 class ChartByAgeViewModel @Inject constructor(
-    private val firebaseDatabase: FirebaseDatabase,
-    private val repo: Repo
+    private val fireBaseDatabase: FirebaseDatabase
 ) : ViewModel() {
     val mutableList = MutableLiveData<List<PredictImg>>()
     val mutableError = MutableLiveData<String>()
@@ -29,7 +26,7 @@ class ChartByAgeViewModel @Inject constructor(
             try {
 
                 withContext(Dispatchers.IO) {
-                    firebaseDatabase.getReference("predictImg").orderByChild("id_patient")
+                    fireBaseDatabase.getReference("predictImg").orderByChild("id_patient")
                         .addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onCancelled(p0: DatabaseError) {
                             }

@@ -1,7 +1,7 @@
 package com.example.ratinadeticpro.data.dagger.model
 
-import com.example.ratinadeticpro.Ui.ui.Login.LoginActivity
-import com.example.ratinadeticpro.Ui.ui.signUp.MainActivity
+import com.example.ratinadeticpro.ui.ui.login.LoginActivity
+import com.example.ratinadeticpro.ui.ui.signUp.MainActivity
 
 
 import dagger.Module
@@ -14,4 +14,5 @@ abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector
     abstract fun bindLogin(): LoginActivity
+
 }

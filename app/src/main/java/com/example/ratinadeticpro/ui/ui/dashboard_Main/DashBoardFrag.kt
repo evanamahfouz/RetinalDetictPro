@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.Ui.ui.Dashboard_Main
+package com.example.ratinadeticpro.ui.ui.dashboard_Main
 
 
 import android.content.Intent
@@ -10,11 +10,11 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.Login.LoginActivity
+import com.example.ratinadeticpro.ui.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_dash_borad_.*
 
 
-class DashBoradFrag : Fragment() {
+class DashBoardFrag : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

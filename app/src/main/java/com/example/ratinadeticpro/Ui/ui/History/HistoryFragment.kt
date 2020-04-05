@@ -1,4 +1,6 @@
-package com.example.ratinadeticpro.Ui.ui.History
+@file:Suppress("DEPRECATION")
+
+package com.example.ratinadeticpro.ui.ui.history
 
 
 import android.content.Context
@@ -18,7 +20,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
+import com.example.ratinadeticpro.ui.ui.viewModelFactory.ViewModelFactory
 import com.example.ratinadeticpro.databinding.FragmentHistoryBinding
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_history.*
@@ -28,7 +30,7 @@ import javax.inject.Inject
 @Suppress("DEPRECATION")
 class HistoryFragment : Fragment() {
     private lateinit var binding: FragmentHistoryBinding
-    lateinit var adapter: HistoryAdapter
+    private lateinit var adapter: HistoryAdapter
 
 
     lateinit var viewModel: HistoryViewModel

@@ -1,4 +1,6 @@
-package com.example.ratinadeticpro.Ui.ui.Login
+@file:Suppress("DEPRECATION")
+
+package com.example.ratinadeticpro.ui.ui.login
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -14,10 +16,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.LunchFragmentActivity
-import com.example.ratinadeticpro.Ui.ui.LunchResearcherFragment
-import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
-import com.example.ratinadeticpro.Ui.ui.signUp.MainActivity
+import com.example.ratinadeticpro.ui.ui.LunchFragmentActivity
+import com.example.ratinadeticpro.ui.ui.LunchResearcherFragment
+import com.example.ratinadeticpro.ui.ui.viewModelFactory.ViewModelFactory
+import com.example.ratinadeticpro.ui.ui.signUp.MainActivity
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.hidePassword
@@ -67,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         }
-        link_researcher.setOnClickListener{
+        link_researcher.setOnClickListener {
             Intent(this, LunchResearcherFragment::class.java).also {
                 startActivity(it)
             }
@@ -126,7 +128,10 @@ class LoginActivity : AppCompatActivity() {
                 this.putString("id_user", id)
                 this.commit()
             }
-            Log.v("IDDDDDDDDDDDDDDD",sharedPreferences.getString(getString(R.string.id_user_key),"")!!)
+            Log.v(
+                "IDDDDDDDDDDDDDDD",
+                sharedPreferences.getString(getString(R.string.id_user_key), "")!!
+            )
             setResult(RESULT_OK, null)
 
             Intent(this, LunchFragmentActivity::class.java).also {

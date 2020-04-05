@@ -1,7 +1,6 @@
-package com.example.ratinadeticpro.Ui.ui.History
+package com.example.ratinadeticpro.ui.ui.history
 
 import android.annotation.SuppressLint
-import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup

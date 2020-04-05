@@ -1,4 +1,6 @@
-package com.example.ratinadeticpro.Ui.ui.RsultFragment
+@file:Suppress("DEPRECATION")
+
+package com.example.ratinadeticpro.ui.ui.resultFragment
 
 
 import android.annotation.SuppressLint
@@ -17,7 +19,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
+import com.example.ratinadeticpro.ui.ui.viewModelFactory.ViewModelFactory
 
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_result.*
@@ -48,7 +50,7 @@ class ResultFragment : Fragment() {
         idUser = sharedPreferences.getString(getString(R.string.id_user_key), "")!!
         eyePart = sharedPreferences.getString(getString(R.string.eye_part_key), "")!!
 
-        Toast.makeText(activity, idUser + " " + eyePart, Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, "$idUser $eyePart", Toast.LENGTH_LONG).show()
 
         val progressDialog = ProgressDialog(
             context,
@@ -80,6 +82,7 @@ class ResultFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun onSignSuccess() {
         viewModel =
             ViewModelProviders.of(this, factory).get(ResultViewModel::class.java).also {
@@ -88,14 +91,14 @@ class ResultFragment : Fragment() {
                     idUser, eyePart
                 )
             }
-        viewModel.mutableList.observe(this, Observer {
+        viewModel.mutableList.observe(viewLifecycleOwner, Observer {
 
             result_type.text = it.type + " " + it.probability
 
             result_description.text = it.descrip
         })
 
-        viewModel.mutableError.observe(this, Observer { errorLabel ->
+        viewModel.mutableError.observe(viewLifecycleOwner, Observer { errorLabel ->
 
             //database
             if (errorLabel.isNotEmpty()) {

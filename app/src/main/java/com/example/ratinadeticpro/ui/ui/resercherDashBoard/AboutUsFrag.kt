@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.ui.ui.ResercherDashBoard
+package com.example.ratinadeticpro.ui.ui.resercherDashBoard
 
 import android.os.Bundle
 import android.view.LayoutInflater

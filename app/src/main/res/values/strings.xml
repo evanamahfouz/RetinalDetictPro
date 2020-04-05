@@ -32,5 +32,19 @@
     <string name="password">Password</string>
     <string name="card_id">Card ID</string>
     <string name="chart_by_gender">Chart By Gender</string>
+    <string name="type">type</string>
+    <string name="date">date</string>
+    <string name="eye_side">eye side</string>
+    <string name="reports">Reports</string>
+    <string name="overall_chart">OverAll Chart</string>
+    <string name="nodata">noData</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="right">right</string>
+    <string name="lift">lift</string>
+    <string name="predict">Predict</string>
+    <string name="add_image">Add Image</string>
+    <string name="logo">Logo</string>
+    <string name="for_more_details_click_here">For More Details Click Here</string>
+    <string name="the_result_for_your_image">The Result For Your Image</string>
 
 </resources>

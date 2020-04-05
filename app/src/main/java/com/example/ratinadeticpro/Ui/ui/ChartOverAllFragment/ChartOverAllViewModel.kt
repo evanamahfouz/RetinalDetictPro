@@ -1,22 +1,19 @@
-package com.example.ratinadeticpro.Ui.ui.ChartOverAllFragment
+package com.example.ratinadeticpro.ui.ui.chartOverAllFragment
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ratinadeticpro.data.model.CountOfType
-import com.example.ratinadeticpro.data.repo.Repo
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 class ChartOverAllViewModel @Inject constructor(
-    private val firebaseDatabase: FirebaseDatabase,
-    private val repo: Repo
+    private val fireBaseDatabase: FirebaseDatabase
 ) : ViewModel() {
     val mutableList = MutableLiveData<List<CountOfType>>()
     val mutableError = MutableLiveData<String>()
@@ -25,7 +22,7 @@ class ChartOverAllViewModel @Inject constructor(
     fun getPost() {
         viewModelScope.launch {
             try {
-                firebaseDatabase.getReference("CountEach")
+                fireBaseDatabase.getReference("CountEach")
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onCancelled(p0: DatabaseError) {
                             Log.v("ViewModeChartAllError", p0.message)
@@ -41,9 +38,18 @@ class ChartOverAllViewModel @Inject constructor(
                                 )
                             }
                             Log.v("ViewModelChartAll11", menu.size.toString())
-                            Log.v("ViewModelChartAll11", "Type "+menu[1].type+" Count "+menu[1].count)
-                            Log.v("ViewModelChartAll11", "Type "+menu[2].type+" Count "+menu[2].count)
-                            Log.v("ViewModelChartAll11", "Type "+menu[3].type+" Count "+menu[3].count)
+                            Log.v(
+                                "ViewModelChartAll11",
+                                "Type " + menu[1].type + " Count " + menu[1].count
+                            )
+                            Log.v(
+                                "ViewModelChartAll11",
+                                "Type " + menu[2].type + " Count " + menu[2].count
+                            )
+                            Log.v(
+                                "ViewModelChartAll11",
+                                "Type " + menu[3].type + " Count " + menu[3].count
+                            )
 
                             mutableList.value = menu
                         }

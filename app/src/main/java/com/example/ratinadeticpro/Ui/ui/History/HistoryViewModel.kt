@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.Ui.ui.History
+package com.example.ratinadeticpro.ui.ui.history
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

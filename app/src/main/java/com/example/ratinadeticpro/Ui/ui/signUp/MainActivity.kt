@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.ratinadeticpro.Ui.ui.signUp
+package com.example.ratinadeticpro.ui.ui.signUp
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -14,11 +14,11 @@ import android.widget.Toast
 import androidx.core.content.edit
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.ratinadeticpro.data.Firebase.User
+import com.example.ratinadeticpro.data.fireBase.User
 import com.example.ratinadeticpro.R
-import com.example.ratinadeticpro.Ui.ui.Login.LoginActivity
-import com.example.ratinadeticpro.Ui.ui.LunchFragmentActivity
-import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
+import com.example.ratinadeticpro.ui.ui.login.LoginActivity
+import com.example.ratinadeticpro.ui.ui.LunchFragmentActivity
+import com.example.ratinadeticpro.ui.ui.viewModelFactory.ViewModelFactory
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject

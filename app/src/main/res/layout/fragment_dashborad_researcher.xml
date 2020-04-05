@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ratinadeticpro.Ui.ui.ResercherDashBoard.DashboradResearcherFragment">
+    tools:context="com.example.ratinadeticpro.ui.ui.resercherDashBoard.DashboardResearcherFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -99,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/imageView3"
                         android:layout_centerHorizontal="true"
-                        android:text="OverAll Chart"
+                        android:text="@string/overall_chart"
                         android:textSize="24sp" />
 
                     <ImageView
@@ -178,7 +178,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/bus"
                         android:layout_centerHorizontal="true"
-                        android:text="Reports"
+                        android:text="@string/reports"
                         android:textSize="24sp" />
 
                     <ImageView
@@ -205,6 +205,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
+            app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp"
+            android:focusable="true" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.ui.ui.ChartByAge
+package com.example.ratinadeticpro.ui.ui.reportsWithSearch
 
 
 import android.annotation.SuppressLint
@@ -18,12 +18,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SearchAdapter :
-    ListAdapter<PredictImg?, SearchAdapter.MyViewHolder>(DiffCallback()), Filterable {
-
-    var imageFilterList = listOf<PredictImg?>()
+    ListAdapter<PredictImg, SearchAdapter.MyViewHolder>(DiffCallback()), Filterable {
+    private var imageFilterList: List<PredictImg>
 
     init {
         imageFilterList = currentList
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -44,9 +44,9 @@ class SearchAdapter :
     class MyViewHolder(private val binding: ListResearchBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: PredictImg?) {
+        fun bind(data: PredictImg) {
             when {
-                data!!.prediction == "DME" -> binding.txtType.setBackgroundResource(R.drawable.circle_orange)
+                data.prediction == "DME" -> binding.txtType.setBackgroundResource(R.drawable.circle_orange)
                 data.prediction == "DRUSEN" -> binding.txtType.setBackgroundResource(R.drawable.circle_yellow)
                 data.prediction == "CNV" -> binding.txtType.setBackgroundResource(R.drawable.circle_red)
                 else -> binding.txtType.setBackgroundResource(R.drawable.circle_green)
@@ -59,7 +59,7 @@ class SearchAdapter :
 
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<PredictImg?>() {
+    class DiffCallback : DiffUtil.ItemCallback<PredictImg>() {
 
 
         override fun areItemsTheSame(
@@ -83,15 +83,22 @@ class SearchAdapter :
     }
 
     override fun getFilter(): Filter {
+        Log.v("CurrentList", currentList.size.toString())
+        imageFilterList = currentList
         return object : Filter() {
-            override fun performFiltering(charSequence: CharSequence?): FilterResults {
+            override fun performFiltering(charSequence: CharSequence): FilterResults {
                 val charSearch = charSequence.toString()
+                Log.v("CharSearch11!!", charSearch)
+                Log.v("imageFilterSize!!", imageFilterList.size.toString())
+
                 imageFilterList = if (charSearch.isEmpty()) {
-                    imageFilterList
+                    Log.v("imageSizeEmptyChar", imageFilterList.size.toString())
+
+                    currentList
                 } else {
-                    val resultList = ArrayList<PredictImg?>()
+                    val resultList = ArrayList<PredictImg>()
                     for (row in imageFilterList) {
-                        if (row!!.eye_part.toLowerCase(Locale.ROOT).contains(
+                        if (row.eye_part.toLowerCase(Locale.ROOT).contains(
                                 charSearch.toLowerCase(
                                     Locale.ROOT
                                 )
@@ -101,26 +108,46 @@ class SearchAdapter :
                                 charSearch.toLowerCase(
                                     Locale.ROOT
                                 )
+                            ) || row.age.toLowerCase(Locale.ROOT).contains(
+                                charSearch.toLowerCase(
+                                    Locale.ROOT
+                                )
+                            ) || row.date.toLowerCase(Locale.ROOT).contains(
+                                charSearch.toLowerCase(
+                                    Locale.ROOT
+                                )
+                            ) || row.probability.toLowerCase(Locale.ROOT).contains(
+                                charSearch.toLowerCase(
+                                    Locale.ROOT
+                                )
                             )
+
                         ) {
                             resultList.add(row)
                         }
 
                     }
+                    Log.v("ResultListSize", resultList.size.toString())
                     resultList
                 }
                 val filterResults = FilterResults()
                 filterResults.values = imageFilterList
+
+                Log.v("InFilter", imageFilterList.size.toString())
                 return filterResults
             }
 
             @Suppress("UNCHECKED_CAST")
-            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                imageFilterList = results?.values as List<PredictImg?>
+            override fun publishResults(constraint: CharSequence, results: FilterResults) {
+                imageFilterList = results.values as List<PredictImg>
+                submitList(imageFilterList)
+
                 notifyDataSetChanged()
             }
 
         }
     }
+
+
 }
 

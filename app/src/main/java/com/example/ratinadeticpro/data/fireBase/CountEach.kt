@@ -1,6 +1,5 @@
-package com.example.ratinadeticpro.data.Firebase
+package com.example.ratinadeticpro.data.fireBase
 
-import com.google.firebase.database.Exclude
 
 class CountEach(
     val NORMAL: String,

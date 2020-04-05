@@ -1,4 +1,4 @@
-package com.example.ratinadeticpro.Ui.ui
+package com.example.ratinadeticpro.ui.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +10,7 @@ class LunchResearcherFragment : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar!!.hide() //<< this
+        supportActionBar!!.hide()
 
         DataBindingUtil.setContentView<ActivityLunchFragmentBinding>(
             this,

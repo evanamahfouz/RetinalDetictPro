@@ -8,44 +8,24 @@ import com.example.ratinadeticpro.data.model.CountOfType
 import com.example.ratinadeticpro.data.model.Json4Kotlin_Base
 import com.example.ratinadeticpro.data.model.UserProfile
 import com.example.ratinadeticpro.data.network.GoogleSheetAPI
-import com.google.firebase.database.FirebaseDatabase
 import javax.inject.Inject
 
 
 class Repo @Inject constructor(
     private val db: RetinaDetectDataBase,
-    private val firebaseDatabase: FirebaseDatabase,
     private val googleSheetAPI: GoogleSheetAPI
 ) {
 
 
     suspend fun signUp(user: UserEntity) {
         // handle signUp
-        firebaseDatabase.getReference("users").child(user.ID_User).setValue(user)
         db.userDOA().insert(user)
 
     }
 
-    suspend fun getGenderChart(type: String): List<CountOfType> {
-        return db.userDOA().getGenderChart(type)
-    }
-
-    suspend fun getAgeChart(): List<CountOfType> {
-        return db.userDOA().getAgeChart()
-    }
 
     suspend fun getCountForEachType(id: String): List<CountOfType> {
         return db.predictImgDOA().getCountForCharUser(id)
-    }
-
-    suspend fun getCountForAllType(): List<CountOfType> {
-        return db.predictImgDOA().getCountForAllUserChart()
-
-    }
-
-    suspend fun insertToDB(whatToDoEntity: List<WhatToDoEntity>) {
-        // handle signUp
-        db.whatToDoDOA().insert(whatToDoEntity)
 
     }
 

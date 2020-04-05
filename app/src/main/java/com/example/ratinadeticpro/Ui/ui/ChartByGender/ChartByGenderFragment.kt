@@ -1,31 +1,29 @@
-package com.example.ratinadeticpro.Ui.ui.ChartByGender
+@file:Suppress("DEPRECATION")
+
+package com.example.ratinadeticpro.ui.ui.chartByGender
 
 
 import android.content.Context
-import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.ratinadeticpro.R
-
-import com.example.ratinadeticpro.Ui.ui.ViewModelFactory.ViewModelFactory
 import com.example.ratinadeticpro.data.model.CountOfType
+import com.example.ratinadeticpro.ui.ui.viewModelFactory.ViewModelFactory
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_chart_by_gender.*
 import javax.inject.Inject
-import com.github.mikephil.charting.data.*
-import kotlinx.android.synthetic.main.fragment_chart_by_gender.floatingActionButton
-import kotlinx.android.synthetic.main.predict_fragment.*
-import java.lang.Boolean.TRUE
 
 
 /**
@@ -59,14 +57,11 @@ class ChartByGenderFragment : Fragment() {
 //                radio_DUREON.id -> type = "DRUSEN"
 //
 //            }
-            type = if (checkedId == radio_DME.id) {
-                "DME"
-            } else if (checkedId == radio_CNV.id) {
-                "CNV"
-            } else if (checkedId == radio_NORMAL.id) {
-                "NORMAL"
-            } else {
-                "DRUSEN"
+            type = when (checkedId) {
+                radio_DME.id -> "DME"
+                radio_CNV.id -> "CNV"
+                radio_NORMAL.id -> "NORMAL"
+                else -> "DRUSEN"
             }
 
             startPost(type)
@@ -82,7 +77,7 @@ class ChartByGenderFragment : Fragment() {
 
     }
 
-    private fun startPost(type: String="DME") {
+    private fun startPost(type: String = "DME") {
 
         viewModel =
             ViewModelProviders.of(this, factory).get(ChartByGenderViewModel::class.java).also {
@@ -94,14 +89,14 @@ class ChartByGenderFragment : Fragment() {
             if (it.isNotEmpty()) {
 
                 drawChart(it)
-            }else{
+            } else {
                 barchart_gender.clear()
             }
 
             Log.v("ListSize", it.size.toString())
         })
 
-        viewModel.mutableError.observe(this, Observer { errorLabel ->
+        viewModel.mutableError.observe(viewLifecycleOwner, Observer { errorLabel ->
 
             //database
             if (errorLabel.isNotEmpty()) {
@@ -115,7 +110,6 @@ class ChartByGenderFragment : Fragment() {
     }
 
     private fun drawChart(it: List<CountOfType>) {
-        Log.v("InsideDraw", "YESSSSSSSS2")
         val noOfEmp = ArrayList<BarEntry>()
         val countOfTypes = ArrayList<String>()
 

@@ -1,11 +1,10 @@
-package com.example.ratinadeticpro.Ui.ui.Chart
+package com.example.ratinadeticpro.ui.ui.chart
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ratinadeticpro.data.model.CountOfType
-import com.example.ratinadeticpro.data.model.UserProfile
 import com.example.ratinadeticpro.data.repo.Repo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

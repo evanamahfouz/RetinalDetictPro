@@ -6,7 +6,7 @@
     app:startDestination="@id/dashBoradFrag">
     <fragment
         android:id="@+id/dashBoradFrag"
-        android:name="com.example.ratinadeticpro.Ui.ui.Dashboard_Main.DashBoradFrag"
+        android:name="com.example.ratinadeticpro.ui.ui.dashboard_Main.DashBoardFrag"
         android:label="fragment_dash_borad_"
         tools:layout="@layout/fragment_dash_borad_">
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/predictFragment2"
-        android:name="com.example.ratinadeticpro.Ui.ui.predict.PredictFragment"
+        android:name="com.example.ratinadeticpro.ui.ui.predict.PredictFragment"
         android:label="predict_fragment"
         tools:layout="@layout/predict_fragment">
         <action
@@ -75,12 +75,12 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment2"
-        android:name="com.example.ratinadeticpro.Ui.ui.RsultFragment.ResultFragment"
+        android:name="com.example.ratinadeticpro.ui.ui.resultFragment.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" />
     <fragment
         android:id="@+id/dashboardFragment2"
-        android:name="com.example.ratinadeticpro.Ui.ui.Chart.ChartFragment"
+        android:name="com.example.ratinadeticpro.ui.ui.chart.ChartFragment"
         android:label="dashboard_fragment"
         tools:layout="@layout/chart_fragment">
         <action
@@ -93,7 +93,7 @@
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.example.ratinadeticpro.Ui.ui.History.HistoryFragment"
+        android:name="com.example.ratinadeticpro.ui.ui.history.HistoryFragment"
         android:label="HistoryFragment"
         tools:layout="@layout/fragment_history">
         <action
@@ -106,7 +106,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.ratinadeticpro.Ui.ui.Profile.ProfileFragment"
+        android:name="com.example.ratinadeticpro.ui.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile">
         <action
@@ -119,7 +119,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutUsFragment"
-        android:name="com.example.ratinadeticpro.Ui.ui.AboutUs.AboutUsFragment"
+        android:name="com.example.ratinadeticpro.ui.ui.aboutUs.AboutUsFragment"
         android:label="fragment_about_us"
         tools:layout="@layout/fragment_about_us">
         <action
@@ -132,7 +132,7 @@
     </fragment>
     <activity
         android:id="@+id/loginActivity2"
-        android:name="com.example.ratinadeticpro.Ui.ui.Login.LoginActivity"
+        android:name="com.example.ratinadeticpro.ui.ui.login.LoginActivity"
         android:label="LoginActivity"
         tools:layout="@layout/activity_login" />
 </navigation>
